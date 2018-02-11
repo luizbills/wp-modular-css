@@ -83,7 +83,7 @@ class WP_Modular_CSS_Builder {
 		$args = is_array( $args ) ? $args : [];
 		$args = array_merge( $defaults, $args );
 
-		if ( ! empty( $args['disabled'] ) ) return '';
+		if ( ! empty( $args['disabled'] ) || count( $breakpoints ) === 0 ) return '';
 
 		$output = '';
 		foreach( $breakpoints as $index => $media ) {
