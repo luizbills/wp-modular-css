@@ -6,6 +6,10 @@
 .[[@use prefix]]h[[@index]] { height: [[@value]] }
 [[/@foreach]]
 
+[[@foreach heights:percentages]]
+.[[@use prefix]]h-[[@index]] { height: [[@value]]% }
+[[/@foreach]]
+
 [[@foreach heights:min-height]]
 .[[@use prefix]]min-h-[[@index]] { height: [[@value]] }
 [[/@foreach]]
@@ -25,6 +29,10 @@
 [[@responsive]]
 	[[@foreach heights]]
 	.[[@use prefix]]h[[@index]]-[[@screen-size]] { height: [[@value]] }
+	[[/@foreach]]
+
+	[[@foreach heights:percentages]]
+	.[[@use prefix]]h-[[@index]]-[[@screen-size]] { height: [[@value]]% }
 	[[/@foreach]]
 
 	[[@foreach heights:min-height]]
