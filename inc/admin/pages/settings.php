@@ -101,7 +101,7 @@ class WP_Modular_CSS_Settings_Page {
 
 	protected function get_code_editor_desc () {
 		$desc = 'Useful links: ';
-		$desc .= '<br>["JSON config file syntax docs" repository](https://github.com/luizbills/wp-modular-css/docs/json-config-syntax.md)';
+		$desc .= '<br>["JSON config file syntax docs" repository](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
 		$desc .= '<br>[Tachyons docs](http://tachyons.io/docs)';
 		$desc .= '<br>["This Plugin" repository](https://github.com/luizbills/wp-modular-css)';
 

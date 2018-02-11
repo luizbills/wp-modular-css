@@ -45,12 +45,16 @@ class WP_Modular_CSS_Builder {
 
 	protected function build () {
 		$output = '';
+		$prefix = isset( $this->config['prefix'] ) ? $this->config['prefix'] : '';
+
+		$output .= $this->includes( 'before' );
+		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_before', $output, $prefix );
 
 		foreach( $this->config['__enabled-modules'] as $module_name => $module_props ) {
 			$module_content = isset( $this->css_modules[ $module_name ] ) ? $this->css_modules[ $module_name ] : false;
 			if ( empty( $module_content ) ) continue;
 
-			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_' . $module_name, $module_content, $module_name );
+			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_' . $module_name, $module_content, $prefix, $module_name );
 
 			$module_content = $this->setup_special_syntax( $module_content, $module_props );
 			$module_content = do_shortcode( $module_content );
@@ -58,8 +62,13 @@ class WP_Modular_CSS_Builder {
 			// remove @default
 			$module_content = str_replace( [ '-@default', '@default' ], '', $module_content );
 
+			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_output_' . $module_name, $module_content, $prefix, $module_name );
+
 			$output .= trim( $module_content ) . PHP_EOL . PHP_EOL;
 		}
+
+		$output .= $this->includes( 'after' );
+		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_after', $output, $prefix );
 
 		$this->output = $output;
 	}
@@ -114,6 +123,10 @@ class WP_Modular_CSS_Builder {
 		$value = $this->get_config_value( implode( '.', $args ) );
 
 		return $value;
+	}
+
+	protected function includes ( $position ) {
+		return '';
 	}
 
 	protected function setup_special_syntax ( $string, $props = [] ) {

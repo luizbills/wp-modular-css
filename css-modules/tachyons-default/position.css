@@ -1,37 +1,15 @@
 /*
-
-   POSITIONING
-   Docs: http://tachyons.io/docs/layout/position/
-
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-
+	POSITIONING
 */
 
-.static { position: static; }
-.relative  { position: relative; }
-.absolute  { position: absolute; }
-.fixed  { position: fixed; }
+.[[@use prefix]]static { position: static; }
+.[[@use prefix]]relative { position: relative; }
+.[[@use prefix]]absolute { position: absolute; }
+.[[@use prefix]]fixed { position: fixed; }
 
-@media (--breakpoint-not-small) {
-  .static-ns { position: static; }
-  .relative-ns  { position: relative; }
-  .absolute-ns  { position: absolute; }
-  .fixed-ns  { position: fixed; }
-}
-
-@media (--breakpoint-medium) {
-  .static-m { position: static; }
-  .relative-m  { position: relative; }
-  .absolute-m  { position: absolute; }
-  .fixed-m  { position: fixed; }
-}
-
-@media (--breakpoint-large) {
-  .static-l { position: static; }
-  .relative-l  { position: relative; }
-  .absolute-l  { position: absolute; }
-  .fixed-l  { position: fixed; }
-}
+[[@responsive]]
+	.[[@use prefix]]static-[[@screen-size]] { position: static; }
+	.[[@use prefix]]relative-[[@screen-size]] { position: relative; }
+	.[[@use prefix]]absolute-[[@screen-size]] { position: absolute; }
+	.[[@use prefix]]fixed-[[@screen-size]] { position: fixed; }
+[[/@responsive]]

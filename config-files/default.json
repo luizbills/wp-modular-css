@@ -1,5 +1,5 @@
 {
-	"prefix": null,
+	"prefix": "",
 	"debug": false,
 	"media-queries": {
 		"ns": "screen and (min-width: 30em)",
@@ -18,7 +18,7 @@
 		"light-gray":    "#eee",
 		"near-white":    "#f4f4f4",
 		"white":         "#fff",
-		"transparent":   "transparent",
+
 		"black-90":      "rgba(0,0,0,.9)",
 		"black-80":      "rgba(0,0,0,.8)",
 		"black-70":      "rgba(0,0,0,.7)",
@@ -43,6 +43,7 @@
 		"white-05":      "rgba(255,255,255,.05)",
 		"white-025":     "rgba(255,255,255,.025)",
 		"white-0125":    "rgba(255,255,255,.0125)",
+
 		"dark-red":      "#e7040f",
 		"red":           "#ff4136",
 		"light-red":     "#ff725c",
@@ -67,7 +68,10 @@
 		"washed-blue":   "#f6fffe",
 		"washed-green":  "#e8fdf5",
 		"washed-yellow": "#fffceb",
-		"washed-red":    "#ffdfdf"
+		"washed-red":    "#ffdfdf",
+
+		"inherit": "inherit",
+		"transparent": "transparent"
 	},
 	"spacing": {
 		"0": 0,
@@ -217,28 +221,28 @@
 		"headline-line-height": 1.25,
 		"copy-indent": "1em",
 		"copy-separator": "1.5rem",
-		"link-color": "[[@use colors blue]",
-		"link-color-hover": "[[@use colors light-blue]"
+		"links-color": "[[@use colors blue]",
+		"links-color-hover": "[[@use colors light-blue]",
+		"links-transition": "color .15s ease-in"
 	},
 	"opacity": {
-		"0": 0,
-		"10": ".1",
-		"20": ".2",
-		"30": ".3",
-		"40": ".4",
-		"50": ".5",
-		"60": ".6",
-		"70": ".7",
-		"80": ".8",
-		"90": ".9",
-		"100": 1,
-		"05": ".05",
-		"025": ".025"
+		"90":  ".9",
+		"80":  ".8",
+		"70":  ".7",
+		"60":  ".6",
+		"50":  ".5",
+		"40":  ".4",
+		"30":  ".3",
+		"20":  ".2",
+		"10":  ".1",
+		"05":  ".05",
+		"025": ".025",
+		"0":   "0"
 	},
 	"outlines": {
-		"0": 0,
 		"@default": "1px solid",
-		"transparent": "1px solid transparent"
+		"transparent": "1px solid transparent",
+		"0": "0"
 	},
 	"padding": {
 		"0": "[[@use spacing 0]]",
