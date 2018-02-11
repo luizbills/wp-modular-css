@@ -1,8 +1,12 @@
 <?php
-
 /*
-Plugin Name: WP Modular CSS
-Version: 1.0.0
+Plugin Name: Health Check
+Plugin URI: https://github.com/luizbills/wp-modular-css
+Description: Generate customized Tachyons easily
+Version: 0.1.0
+Author: Luiz Bills
+Author URI: https://luizpb.com/en
+Text Domain: wp-modular-css
 */
 
 if ( ! defined( 'WPINC' ) ) die();
