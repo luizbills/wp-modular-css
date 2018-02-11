@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Health Check
+Plugin Name: WP Modular CSS
 Plugin URI: https://github.com/luizbills/wp-modular-css
 Description: Generate customized Tachyons easily
 Version: 0.1.0
