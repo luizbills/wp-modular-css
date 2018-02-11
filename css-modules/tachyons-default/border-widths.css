@@ -1,0 +1,24 @@
+/*
+	BORDER WIDTHS
+*/
+
+[[@foreach border-widths]]
+.[[@use prefix]]bw[[@index]] { border-width: [[@value]]; }
+[[/@foreach]]
+
+/* Resets */
+.[[@use prefix]]bt-0 { border-top-width: 0; }
+.[[@use prefix]]br-0 { border-right-width: 0; }
+.[[@use prefix]]bb-0 { border-bottom-width: 0; }
+.[[@use prefix]]bl-0 { border-left-width: 0; }
+
+[[@responsive]]
+	[[@foreach border-widths]]
+	.[[@use prefix]]bw[[@index]]-[[@screen-size]] { border-width: [[@value]]; }
+	[[/@foreach]]
+
+	.[[@use prefix]]bt-0-[[@screen-size]] { border-top-width: 0; }
+	.[[@use prefix]]br-0-[[@screen-size]] { border-right-width: 0; }
+	.[[@use prefix]]bb-0-[[@screen-size]] { border-bottom-width: 0; }
+	.[[@use prefix]]bl-0-[[@screen-size]] { border-left-width: 0; }
+[[/@responsive]]

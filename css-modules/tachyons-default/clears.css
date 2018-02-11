@@ -1,0 +1,22 @@
+/*
+	CLEARFIX
+*/
+
+.[[@use prefix]]cf:before,
+.[[@use prefix]]cf:after {
+	content: " "; display: table;
+}
+.[[@use prefix]]cf:after { clear: both; }
+.[[@use prefix]]cf { *zoom: 1; }
+
+.[[@use prefix]]cl { clear: left; }
+.[[@use prefix]]cr { clear: right; }
+.[[@use prefix]]cb { clear: both; }
+.[[@use prefix]]cn { clear: none; }
+
+[[@responsive]]
+	.[[@use prefix]]cl-[[@screen-size]] { clear: left; }
+	.[[@use prefix]]cr-[[@screen-size]] { clear: right; }
+	.[[@use prefix]]cb-[[@screen-size]] { clear: both; }
+	.[[@use prefix]]cn-[[@screen-size]] { clear: none; }
+[[/@responsive]]

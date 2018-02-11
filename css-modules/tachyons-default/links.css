@@ -1,0 +1,23 @@
+/*
+	LINKS
+*/
+
+.[[@use prefix]]link {
+	text-decoration: [[@use links text-decoration]];
+	transition: [[@use links transition]];
+}
+
+.[[@use prefix]]link:link,
+.[[@use prefix]]link:visited {
+	transition: [[@use links transition]];
+}
+.[[@use prefix]]link:hover   {
+	transition: [[@use links transition]];
+}
+.[[@use prefix]]link:active  {
+	transition: [[@use links transition]];
+}
+.[[@use prefix]]link:focus   {
+	transition: [[@use links transition]];
+	outline: [[@use links outline]];
+}

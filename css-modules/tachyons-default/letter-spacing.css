@@ -1,0 +1,13 @@
+/*
+	LETTER SPACING
+*/
+
+[[@foreach letter-spacing]]
+.[[@use prefix]]tracked-[[@index]] { letter-spacing: [[@value]]; }
+[[/@foreach]]
+
+[[@responsive]]
+	[[@foreach letter-spacing]]
+	.[[@use prefix]]tracked-[[@index]]-[[@screen-size]] { letter-spacing: [[@value]]; }
+	[[/@foreach]]
+[[/@responsive]]

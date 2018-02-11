@@ -1,0 +1,14 @@
+/*
+	FORMS
+*/
+
+.[[@use prefix]]input-reset {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.[[@use prefix]]button-reset::-moz-focus-inner,
+.[[@use prefix]]input-reset::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}

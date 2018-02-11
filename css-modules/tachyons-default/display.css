@@ -1,0 +1,43 @@
+/*
+	DISPLAY
+*/
+
+.[[@use prefix]]dn {              display: none; }
+.[[@use prefix]]di {              display: inline; }
+.[[@use prefix]]db {              display: block; }
+.[[@use prefix]]dib {             display: inline-block; }
+.[[@use prefix]]dit {             display: inline-table; }
+.[[@use prefix]]dt {              display: table; }
+.[[@use prefix]]dtc {             display: table-cell; }
+.[[@use prefix]]dt-row {          display: table-row; }
+.[[@use prefix]]dt-row-group {    display: table-row-group; }
+.[[@use prefix]]dt-column {       display: table-column; }
+.[[@use prefix]]dt-column-group { display: table-column-group; }
+
+/*
+  This will set table to full width and then
+  all cells will be equal width
+*/
+.[[@use prefix]]dt--fixed {
+	table-layout: fixed;
+	width: 100%;
+}
+
+[[@responsive]]
+	.[[@use prefix]]dn-[[@screen-size]] {              display: none; }
+	.[[@use prefix]]di-[[@screen-size]] {              display: inline; }
+	.[[@use prefix]]db-[[@screen-size]] {              display: block; }
+	.[[@use prefix]]dib-[[@screen-size]] {             display: inline-block; }
+	.[[@use prefix]]dit-[[@screen-size]] {             display: inline-table; }
+	.[[@use prefix]]dt-[[@screen-size]] {              display: table; }
+	.[[@use prefix]]dtc-[[@screen-size]] {             display: table-cell; }
+	.[[@use prefix]]dt-row-[[@screen-size]] {          display: table-row; }
+	.[[@use prefix]]dt-row-group-[[@screen-size]] {    display: table-row-group; }
+	.[[@use prefix]]dt-column-[[@screen-size]] {       display: table-column; }
+	.[[@use prefix]]dt-column-group-[[@screen-size]] { display: table-column-group; }
+
+	.[[@use prefix]]dt--fixed-[[@screen-size]] {
+		table-layout: fixed;
+		width: 100%;
+	}
+[[/@responsive]]

@@ -1,0 +1,13 @@
+/*
+	BOX-SHADOW
+*/
+
+[[@foreach box-shadow]]
+.[[@use prefix]]shadow-[[@index]] { box-shadow: [[@value]] }
+[[/@foreach]]
+
+[[@responsive]]
+	[[@foreach box-shadow]]
+	.[[@use prefix]]shadow-[[@index]]-[[@screen-size]] { box-shadow: [[@value]] }
+	[[/@foreach]]
+[[/@responsive]]

@@ -1,0 +1,73 @@
+/*
+	FONT FAMILY GROUPS
+*/
+
+.[[@use prefix]]sans-serif {
+	font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+}
+
+.[[@use prefix]]serif {
+	font-family: georgia, times, serif;
+}
+
+.[[@use prefix]]system-sans-serif {
+	font-family: sans-serif;
+}
+
+.[[@use prefix]]system-serif {
+	font-family: serif;
+}
+
+
+/* Monospaced Typefaces (for code) */
+
+/* From http://cssfontstack.[[@use prefix]]com */
+code, .[[@use prefix]]code {
+	font-family: Consolas, monaco, monospace;
+}
+
+.[[@use prefix]]courier {
+	font-family: 'Courier Next', courier, monospace;
+}
+
+
+/* Sans-Serif Typefaces */
+
+.[[@use prefix]]helvetica {
+	font-family: 'helvetica neue', helvetica, sans-serif;
+}
+
+.[[@use prefix]]avenir {
+	font-family: 'avenir next', avenir, sans-serif;
+}
+
+
+/* Serif Typefaces */
+
+.[[@use prefix]]athelas {
+	font-family: athelas, georgia, serif;
+}
+
+.[[@use prefix]]georgia {
+	font-family: georgia, serif;
+}
+
+.[[@use prefix]]times {
+	font-family: times, serif;
+}
+
+.[[@use prefix]]bodoni {
+	font-family: "Bodoni MT", serif;
+}
+
+.[[@use prefix]]calisto {
+	font-family: "Calisto MT", serif;
+}
+
+.[[@use prefix]]garamond {
+	font-family: garamond, serif;
+}
+
+.[[@use prefix]]baskerville {
+	font-family: baskerville, serif;
+}

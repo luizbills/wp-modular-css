@@ -1,0 +1,10 @@
+/*
+	BORDER COLOR
+*/
+
+[[@foreach colors]]
+.[[@use prefix]]b--[[@index]] { border-color: [[@value]] }
+[[/@foreach]]
+
+.[[@use prefix]]b--transparent { border-color: transparent }
+.[[@use prefix]]b--inherit { border-color: inherit }

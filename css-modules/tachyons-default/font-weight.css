@@ -1,0 +1,29 @@
+/*
+	FONT WEIGHT
+*/
+
+.[[@use prefix]]normal { font-weight: normal; }
+.[[@use prefix]]b      { font-weight: bold; }
+.[[@use prefix]]fw1    { font-weight: 100; }
+.[[@use prefix]]fw2    { font-weight: 200; }
+.[[@use prefix]]fw3    { font-weight: 300; }
+.[[@use prefix]]fw4    { font-weight: 400; }
+.[[@use prefix]]fw5    { font-weight: 500; }
+.[[@use prefix]]fw6    { font-weight: 600; }
+.[[@use prefix]]fw7    { font-weight: 700; }
+.[[@use prefix]]fw8    { font-weight: 800; }
+.[[@use prefix]]fw9    { font-weight: 900; }
+
+[[@responsive]]
+	.[[@use prefix]]normal-[[@screen-size]] { font-weight: normal; }
+	.[[@use prefix]]b-[[@screen-size]]      { font-weight: bold; }
+	.[[@use prefix]]fw1-[[@screen-size]]    { font-weight: 100; }
+	.[[@use prefix]]fw2-[[@screen-size]]    { font-weight: 200; }
+	.[[@use prefix]]fw3-[[@screen-size]]    { font-weight: 300; }
+	.[[@use prefix]]fw4-[[@screen-size]]    { font-weight: 400; }
+	.[[@use prefix]]fw5-[[@screen-size]]    { font-weight: 500; }
+	.[[@use prefix]]fw6-[[@screen-size]]    { font-weight: 600; }
+	.[[@use prefix]]fw7-[[@screen-size]]    { font-weight: 700; }
+	.[[@use prefix]]fw8-[[@screen-size]]    { font-weight: 800; }
+	.[[@use prefix]]fw9-[[@screen-size]]    { font-weight: 900; }
+[[/@responsive]]

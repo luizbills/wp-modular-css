@@ -1,0 +1,45 @@
+/*
+	NEGATIVE MARGINS
+*/
+
+[[@foreach negative-margin]]
+.[[@use prefix]]na[[@index]] { margin: -[[@value]] }
+[[/@foreach]]
+
+[[@foreach negative-margin]]
+.[[@use prefix]]nl[[@index]] { margin-left: -[[@value]] }
+[[/@foreach]]
+
+[[@foreach negative-margin]]
+.[[@use prefix]]nr[[@index]] { margin-right: -[[@value]] }
+[[/@foreach]]
+
+[[@foreach negative-margin]]
+.[[@use prefix]]nb[[@index]] { margin-bottom: -[[@value]] }
+[[/@foreach]]
+
+[[@foreach negative-margin]]
+.[[@use prefix]]nt[[@index]] { margin-top: -[[@value]] }
+[[/@foreach]]
+
+[[@responsive]]
+	[[@foreach negative-margin]]
+	.[[@use prefix]]na[[@index]]-[[@screen-size]] { margin: -[[@value]] }
+	[[/@foreach]]
+
+	[[@foreach negative-margin]]
+	.[[@use prefix]]nl[[@index]]-[[@screen-size]] { margin-left: -[[@value]] }
+	[[/@foreach]]
+
+	[[@foreach negative-margin]]
+	.[[@use prefix]]nr[[@index]]-[[@screen-size]] { margin-right: -[[@value]] }
+	[[/@foreach]]
+
+	[[@foreach negative-margin]]
+	.[[@use prefix]]nb[[@index]]-[[@screen-size]] { margin-bottom: -[[@value]] }
+	[[/@foreach]]
+
+	[[@foreach negative-margin]]
+	.[[@use prefix]]nt[[@index]]-[[@screen-size]] { margin-top: -[[@value]] }
+	[[/@foreach]]
+[[/@responsive]]

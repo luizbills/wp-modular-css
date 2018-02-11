@@ -1,0 +1,13 @@
+/*
+	LINE HEIGHT / LEADING
+*/
+
+[[@foreach line-height]]
+.[[@use prefix]]lh-[[@index]] { line-height: [[@value]]; }
+[[/@foreach]]
+
+[[@responsive]]
+	[[@foreach line-height]]
+	.[[@use prefix]]lh-[[@index]]-[[@screen-size]] { line-height: [[@value]]; }
+	[[/@foreach]]
+[[/@responsive]]

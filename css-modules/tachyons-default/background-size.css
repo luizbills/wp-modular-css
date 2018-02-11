@@ -1,0 +1,11 @@
+/*
+	BACKGROUND SIZE
+*/
+
+.[[@use prefix]]cover { background-size: cover!important; }
+.[[@use prefix]]contain { background-size: contain!important; }
+
+[[@responsive]]
+	.[[@use prefix]]cover-[[@screen-size]] { background-size: cover!important; }
+	.[[@use prefix]]contain-[[@screen-size]] { background-size: contain!important; }
+[[/@responsive]]

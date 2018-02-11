@@ -1,0 +1,13 @@
+/*
+	FLOATS
+*/
+
+.[[@use prefix]]fl { float: left;  _display: inline; }
+.[[@use prefix]]fr { float: right; _display: inline; }
+.[[@use prefix]]fn { float: none; }
+
+[[@responsive]]
+	.[[@use prefix]]fl-[[@screen-size]] { float: left;  _display: inline; }
+	.[[@use prefix]]fr-[[@screen-size]] { float: right; _display: inline; }
+	.[[@use prefix]]fn-[[@screen-size]] { float: none; }
+[[/@responsive]]

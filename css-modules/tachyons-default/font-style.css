@@ -1,0 +1,11 @@
+/*
+	FONT STYLE
+*/
+
+.[[@use prefix]]i         { font-style: italic; }
+.[[@use prefix]]fs-normal { font-style: normal; }
+
+[[@responsive]]
+	.[[@use prefix]]i-[[@screen-size]]         { font-style: italic; }
+	.[[@use prefix]]fs-normal-[[@screen-size]] { font-style: normal; }
+[[/@responsive]]

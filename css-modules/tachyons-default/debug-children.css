@@ -1,0 +1,7 @@
+/*
+	DEBUG CHILDREN
+*/
+
+.[[@use prefix]]debug * { outline: 1px solid gold; }
+.[[@use prefix]]debug-white * { outline: 1px solid white; }
+.[[@use prefix]]debug-black * { outline: 1px solid black; }

@@ -1,0 +1,17 @@
+/*
+	CODE
+*/
+
+.[[@use prefix]]pre {
+	overflow-x: auto;
+	overflow-y: hidden;
+	overflow: scroll;
+}
+
+[[@responsive]]
+	.[[@use prefix]]pre-[[@screen-size]] {
+		overflow-x: auto;
+		overflow-y: hidden;
+		overflow: scroll;
+	}
+[[/@responsive]]

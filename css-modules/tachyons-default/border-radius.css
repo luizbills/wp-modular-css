@@ -1,0 +1,47 @@
+/*
+	BORDER RADIUS
+*/
+
+[[@foreach border-radius]]
+.[[@use prefix]]br[[@index]] { border-radius: [[@value]]; }
+[[/@foreach]]
+
+.[[@use prefix]]br--bottom {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.[[@use prefix]]br--top {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.[[@use prefix]]br--right {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.[[@use prefix]]br--left {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+[[@responsive]]
+	[[@foreach border-radius]]
+	.[[@use prefix]]br[[@index]]-[[@screen-size]] { border-radius: [[@value]]; }
+	[[/@foreach]]
+
+	.[[@use prefix]]br--bottom-[[@screen-size]] {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+	.[[@use prefix]]br--top-[[@screen-size]] {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.[[@use prefix]]br--right-[[@screen-size]] {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.[[@use prefix]]br--left-[[@screen-size]] {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+[[/@responsive]]

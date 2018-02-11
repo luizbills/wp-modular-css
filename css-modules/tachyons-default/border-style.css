@@ -1,0 +1,17 @@
+/*
+
+	BORDER STYLES
+
+*/
+
+.[[@use prefix]]b--dotted { border-style: dotted; }
+.[[@use prefix]]b--dashed { border-style: dashed; }
+.[[@use prefix]]b--solid { border-style: solid; }
+.[[@use prefix]]b--none { border-style: none; }
+
+[[@responsive]]
+	.[[@use prefix]]b--dotted-[[@screen-size]] { border-style: dotted; }
+	.[[@use prefix]]b--dashed-[[@screen-size]] { border-style: dashed; }
+	.[[@use prefix]]b--solid-[[@screen-size]] { border-style: solid; }
+	.[[@use prefix]]b--none-[[@screen-size]] { border-style: none; }
+[[/@responsive]]
