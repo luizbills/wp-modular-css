@@ -120,11 +120,13 @@
 		"2":    "2rem",
 		"3":    "4rem",
 		"4":    "8rem",
-		"5":    "16rem",
-		"-25":  "25%",
-		"-50":  "50%",
-		"-75":  "75%",
-		"-100": "100%"
+		"5":    "16rem"
+	},
+	"heights:percentages": {
+		"25":  "25",
+		"50":  "50",
+		"75":  "75",
+		"100": "100"
 	},
 	"heights:min-height": {
 		"100": "100%"
@@ -221,8 +223,8 @@
 		"headline-line-height": 1.25,
 		"copy-indent": "1em",
 		"copy-separator": "1.5rem",
-		"links-color": "[[@use colors blue]",
-		"links-color-hover": "[[@use colors light-blue]",
+		"links-color": "[[@use colors blue]]",
+		"links-color-hover": "[[@use colors light-blue]]",
 		"links-transition": "color .15s ease-in"
 	},
 	"opacity": {
