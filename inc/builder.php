@@ -110,7 +110,7 @@ class WP_Modular_CSS_Builder {
 	}
 
 	public function shortcode_use ( $args = [], $content = '' ) {
-		$config = get_config();
+		$config = $this->config;
 		$value = $this->get_config_value( implode( '.', $args ) );
 
 		return $value;
