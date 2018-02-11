@@ -132,6 +132,8 @@ class WP_Modular_CSS_Builder {
 	protected function setup_special_syntax ( $string, $props = [] ) {
 		$result = $string;
 
+		if ( ! is_array( $props ) ) $props = [];
+
 		if ( ! empty( $result ) ) {
 			$is_responsive = in_array( 'responsive', $props );
 
