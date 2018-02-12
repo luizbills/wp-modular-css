@@ -93,7 +93,7 @@
 		"-100":  "100%",
 		"-pill": "9999px"
 	},
-	"border-width": {
+	"border-widths": {
 		"0": "0",
 		"1": ".125rem",
 		"2": ".25rem",
@@ -115,6 +115,23 @@
 		"-1": "-1rem",
 		"-2": "-2rem"
 	},
+	"font-family": {
+		"sans-serif": "-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif",
+		"serif": "georgia, times, serif",
+		"system-sans-serif": "sans-serif",
+		"system-serif": "serif",
+		"code": "Consolas, monaco, monospace",
+		"courier": "'Courier Next', courier, monospace",
+		"helvetica": "'helvetica neue', helvetica, sans-serif",
+		"avenir": "'avenir next', avenir, sans-serif",
+		"athelas": "athelas, georgia, serif",
+		"georgia": "georgia, serif",
+		"times": "times, serif",
+		"bodoni": "'Bodoni MT', serif",
+		"calisto": "'Calisto MT', serif",
+		"garamond": "garamond, serif",
+		"baskerville": "baskerville, serif"
+	}
 	"heights": {
 		"1":    "1rem",
 		"2":    "2rem",
