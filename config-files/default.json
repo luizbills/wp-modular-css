@@ -265,7 +265,7 @@
 		"270": "270deg",
 		"315": "315deg"
 	},
-	"tables:striped": {
+	"tables:striped-bg-colors": {
 		"light-silver": "[[@use colors light-silver]]",
 		"moon-gray":    "[[@use colors moon-gray]]",
 		"light-gray":   "[[@use colors light-gray]]",
@@ -288,10 +288,8 @@
 		"5":           "5rem",
 		"subheadline": "5rem"
 	},
-	"typography": {
-		"@default": "30em",
-		"wide": "34em",
-		"narrow": "20em"
+	"typography:extras": {
+		"indent": "1em"
 	},
 	"widths": {
 		"1": "1rem",

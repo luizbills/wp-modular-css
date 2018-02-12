@@ -1,35 +1,27 @@
 /*
-
-  TABLES
-  Docs: http://tachyons.io/docs/elements/tables/
-
+	TABLES
 */
 
-.collapse {
-    border-collapse: collapse;
-    border-spacing: 0;
+.[[@use prefix]]collapse {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.striped--light-silver:nth-child(odd) {
-  background-color: var(--light-silver);
+[[@foreach tables:striped-bg-colors]]
+.[[@use prefix]]striped--[[@index]]:nth-child(odd) {
+	background-color: [[@value]];
 }
+[[/@foreach]]
 
-.striped--moon-gray:nth-child(odd) {
-  background-color: var(--moon-gray);
-}
+[[@responsive]]
+	.[[@use prefix]]collapse-[[@screen-size]] {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
 
-.striped--light-gray:nth-child(odd) {
-  background-color: var(--light-gray);
-}
-
-.striped--near-white:nth-child(odd) {
-  background-color: var(--near-white);
-}
-
-.stripe-light:nth-child(odd) {
-  background-color: var(--white-10);
-}
-
-.stripe-dark:nth-child(odd) {
-  background-color: var(--black-10);
-}
+	[[@foreach tables:striped-bg-colors]]
+	.[[@use prefix]]striped--[[@index]]-[[@screen-size]]:nth-child(odd) {
+		background-color: [[@value]];
+	}
+	[[/@foreach]]
+[[/@responsive]]

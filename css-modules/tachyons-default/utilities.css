@@ -1,50 +1,30 @@
 /*
-
-   UTILITIES
-
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-
+	UTILITIES
 */
 
 /* Equivalent to .overflow-y-scroll */
-.overflow-container {
-  overflow-y: scroll;
+.[[@use prefix]]overflow-container {
+	overflow-y: scroll;
 }
 
-.center {
-  margin-right: auto;
-  margin-left: auto;
+.[[@use prefix]]center {
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.mr-auto { margin-right: auto; }
-.ml-auto { margin-left:  auto; }
+.[[@use prefix]]mr-auto { margin-right: auto; }
+.[[@use prefix]]ml-auto { margin-left:  auto; }
 
-@media (--breakpoint-not-small){
-  .center-ns {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .mr-auto-ns { margin-right: auto; }
-  .ml-auto-ns { margin-left:  auto; }
-}
+[[@responsive]]
+	.[[@use prefix]]overflow-container-[[@screen-size]] {
+		overflow-y: scroll;
+	}
 
-@media (--breakpoint-medium){
-  .center-m {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .mr-auto-m { margin-right: auto; }
-  .ml-auto-m { margin-left:  auto; }
-}
+	.[[@use prefix]]center-[[@screen-size]] {
+		margin-right: auto;
+		margin-left: auto;
+	}
 
-@media (--breakpoint-large){
-  .center-l {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .mr-auto-l { margin-right: auto; }
-  .ml-auto-l { margin-left:  auto; }
-}
+	.[[@use prefix]]mr-auto-[[@screen-size]] { margin-right: auto; }
+	.[[@use prefix]]ml-auto-[[@screen-size]] { margin-left:  auto; }
+[[/@responsive]]
