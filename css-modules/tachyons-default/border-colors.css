@@ -6,5 +6,8 @@
 .[[@use prefix]]b--[[@index]] { border-color: [[@value]] }
 [[/@foreach]]
 
-.[[@use prefix]]b--transparent { border-color: transparent }
-.[[@use prefix]]b--inherit { border-color: inherit }
+[[@responsive]]
+	[[@foreach colors]]
+	.[[@use prefix]]b--[[@index]]-[[@screen-size]] { border-color: [[@value]] }
+	[[/@foreach]]
+[[/@responsive]]

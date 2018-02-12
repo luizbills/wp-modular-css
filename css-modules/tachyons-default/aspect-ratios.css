@@ -36,7 +36,6 @@
 }
 
 [[@responsive]]
-
 	.[[@use prefix]]aspect-ratio-[[@screen-size]] {
 		height: 0;
 		position: relative;
@@ -69,5 +68,4 @@
 		height: 100%;
 		z-index: 100;
 	}
-
 [[/@responsive]]

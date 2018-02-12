@@ -1,6 +1,6 @@
 /*
 	SKINS:PSEUDO
- */
+*/
 
 [[@foreach colors]]
 .[[@use prefix]]hover-[[@index]]:hover,

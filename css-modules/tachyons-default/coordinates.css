@@ -3,12 +3,10 @@
 */
 
 [[@foreach coordinates]]
-
 .[[@use prefix]]top-[[@index]] { top: [[@value]]; }
 .[[@use prefix]]right-[[@index]] { right: [[@value]]; }
 .[[@use prefix]]bottom-[[@index]] { bottom: [[@value]]; }
 .[[@use prefix]]left-[[@index]] { left: [[@value]]; }
-
 [[/@foreach]]
 
 .[[@use prefix]]absolute--fill {

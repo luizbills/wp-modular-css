@@ -284,7 +284,6 @@
 }
 
 [[@responsive]]
-
 	.[[@use prefix]]flex-[[@screen-size]] {
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -303,8 +302,8 @@
 		-webkit-flex: 1 1 auto;
 		-ms-flex: 1 1 auto;
 		flex: 1 1 auto;
-		min-width: 0; /* 1 */
-		min-height: 0; /* 1 */
+		min-width: 0;
+		min-height: 0;
 	}
 
 	.[[@use prefix]]flex-none-[[@screen-size]] {
@@ -563,5 +562,4 @@
 		-ms-flex-negative: 1;
 		flex-shrink: 1;
 	}
-
 [[/@responsive]]

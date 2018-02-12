@@ -5,15 +5,15 @@
 [[@foreach box-shadow]]
 .[[@use prefix]]shadow-[[@index]] {
 	-webkit-box-shadow: [[@value]];
-	        box-shadow: [[@value]];
+	box-shadow: [[@value]];
 }
 [[/@foreach]]
 
 [[@responsive]]
 	[[@foreach box-shadow]]
 	.[[@use prefix]]shadow-[[@index]]-[[@screen-size]] {
-			-webkit-box-shadow: [[@value]];
-		            box-shadow: [[@value]];
+		-webkit-box-shadow: [[@value]];
+		box-shadow: [[@value]];
 	}
 	[[/@foreach]]
 [[/@responsive]]
