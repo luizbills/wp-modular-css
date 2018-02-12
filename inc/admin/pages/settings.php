@@ -1,6 +1,6 @@
 <?php
 
-defined( 'WPINC' ) || die();
+if ( ! defined( 'WPINC' ) ) die();
 
 class WP_Modular_CSS_Settings_Page {
 
