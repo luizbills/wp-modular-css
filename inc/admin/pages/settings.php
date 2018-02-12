@@ -2,8 +2,6 @@
 
 defined( 'WPINC' ) || die();
 
-use HJSON\HJSONParser;
-
 class WP_Modular_CSS_Settings_Page {
 
 	public static $instance = null;
@@ -58,7 +56,15 @@ class WP_Modular_CSS_Settings_Page {
 			'type'    => 'checkbox',
 			'id'      => 'minify',
 			'label'   => 'Minify generated CSS',
-			'default' => '',
+			'after'   => 'Enable',
+		]);
+
+		$this->page->add_field([
+			'type'    => 'checkbox',
+			'id'      => 'enqueue_style',
+			'label'   => 'Add generated css to all front-end pages',
+			'default' => 'on',
+			'after'   => 'Enable'
 		]);
 	}
 
@@ -74,13 +80,12 @@ class WP_Modular_CSS_Settings_Page {
 	public function generate_css_file () {
 		$the_page = wp_get_admin_page( 'wp-modular-css-settings' );
 		$value = $the_page->get_field_value( 'config_json' );
-		$json = $this->parse_json( $value );
+		$config = $this->parse_json( $value );
 
-		if ( false !== $json ) {
-			$json = $this->setup_config_obj( $json );
+		if ( false !== $config ) {
 			$minify_css = $the_page->get_field_value( 'minify' ) === 'on';
-			$filename = 'style' . ( $minify_css ? '.min' : '' ) . '.css';
-			$builder = new WP_Modular_CSS_Builder( $json );
+			$filename = 'style.css';
+			$builder = new WP_Modular_CSS_Builder( $config );
 
 			WP_Modular_CSS::write_file( $filename, $builder->get_output( $minify_css ) );
 		}
@@ -100,10 +105,13 @@ class WP_Modular_CSS_Settings_Page {
 	}
 
 	protected function get_code_editor_desc () {
-		$desc = 'Useful links: ';
-		$desc .= '<br>["JSON config file syntax docs" repository](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
-		$desc .= '<br>[Tachyons docs](http://tachyons.io/docs)';
-		$desc .= '<br>["This Plugin" repository](https://github.com/luizbills/wp-modular-css)';
+		$desc = '';
+		$desc .= '<br>Tip: you can save usaing **ctrl + S** or **cmd + S**';
+		$desc .= '<br><br>Useful links:';
+		$desc .= '["JSON config file syntax docs" repository](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
+		$desc .= ' | [Tachyons docs](http://tachyons.io/docs)';
+		$desc .= ' | [Default JSON config](https://github.com/luizbills/wp-modular-css/blob/master/config-files/default.json)';
+		$desc .= ' | ["This Plugin" repository](https://github.com/luizbills/wp-modular-css)';
 
 		return $desc;
 	}
@@ -127,30 +135,6 @@ class WP_Modular_CSS_Settings_Page {
 		}
 
 		throw new Exception( 'default Modular CSS configuration file missing.' );
-	}
-
-	protected function setup_config_obj ( $json_obj ) {
-		if ( ! isset( $json_obj['debug'] ) ) {
-			$json_obj['debug'] = false;
-		} else {
-			if ( '@WP_DEBUG' === $json_obj['debug'] ) {
-				$json_obj['debug'] = defined( 'WP_DEBUG' ) ? WP_DEBUG : false;
-			} else if ( '@WP_DEBUG_SCRIPT' === $json_obj['debug'] ) {
-				$json_obj['debug'] = defined( 'WP_DEBUG_SCRIPT' ) ? WP_DEBUG_SCRIPT : false;
-			} else {
-				$json_obj['debug'] = boolval( $json_obj['debug'] );
-			}
-		}
-
-		if ( ! isset( $json_obj['media-queries'] ) ) {
-			$json_obj['media-queries'] = [];
-		}
-
-		if ( ! isset( $json_obj['__enabled-modules'] ) ) {
-			$json_obj['__enabled-modules'] = [];
-		}
-
-		return $json_obj;
 	}
 
 	public static function get_instance () {

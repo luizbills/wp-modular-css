@@ -1,11 +1,18 @@
 {
 	"prefix": "",
+
 	"debug": false,
+	"debug-children": false,
+	"debug-grid": false,
+
+	"include-normalize": true,
+
 	"media-queries": {
 		"ns": "screen and (min-width: 30em)",
 		"m": "screen and (min-width: 30em) and (max-width: 60em)",
 		"l": "screen and (min-width: 60em)"
 	},
+
 	"colors": {
 		"black":         "#000",
 		"near-black":    "#111",
@@ -73,6 +80,7 @@
 		"inherit": "inherit",
 		"transparent": "transparent"
 	},
+
 	"spacing": {
 		"0": 0,
 		"1": ".25rem",
@@ -345,14 +353,6 @@
 		"inherit": "inherit",
 		"initial": "initial",
 		"unset":   "unset"
-	},
-
-	"__includes": {
-		"css-reset": {
-			"location": "css-includes/normalize.min.css",
-			"from":     "plugin",
-			"position": "before"
-		}
 	},
 
 	"__enabled-modules": {

@@ -43,11 +43,13 @@ input[type="tel"],
 input[type="text"],
 input[type="url"],
 .[[@use prefix]]border-box {
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 [[@responsive]]
 	.[[@use prefix]]border-box-[[@screen-size]] {
+		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 [[/@responsive]]

@@ -2,6 +2,8 @@
 
 use MatthiasMullie\Minify;
 
+if ( ! defined( 'WPINC' ) ) die();
+
 class WP_Modular_CSS_Builder {
 
 	protected $config;
@@ -9,8 +11,8 @@ class WP_Modular_CSS_Builder {
 	protected $output_min = null;
 	protected $css_modules;
 
-	function __construct( $config_json ) {
-		$this->config = $config_json;
+	function __construct( $config = [] ) {
+		$this->setup_config( $config );
 
 		$this->register_shortcodes();
 		$this->load_modules();
@@ -37,7 +39,11 @@ class WP_Modular_CSS_Builder {
 		$files = array_diff( scandir( $base_path ), [ '.', '..' ] );
 
 		foreach ( $files as $file_name ) {
-			$modules[ str_replace( '.css', '', $file_name ) ] = $this->get_module( $base_path . $file_name );
+			$file_path = $base_path . $file_name;
+
+			if ( file_exists( $file_path ) ) {
+				$modules[ str_replace( '.css', '', $file_name ) ] = file_get_contents( $file_path );
+			}
 		}
 
 		$this->css_modules = apply_filters( WP_Modular_CSS::PREFIX . 'css_modules' , $modules, $type );
@@ -47,7 +53,8 @@ class WP_Modular_CSS_Builder {
 		$output = '';
 		$prefix = isset( $this->config['prefix'] ) ? $this->config['prefix'] : '';
 
-		$output .= $this->includes( 'before' );
+		$output .= $this->includes_before();
+
 		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_before', $output, $prefix );
 
 		foreach( $this->config['__enabled-modules'] as $module_name => $module_props ) {
@@ -67,7 +74,6 @@ class WP_Modular_CSS_Builder {
 			$output .= trim( $module_content ) . PHP_EOL . PHP_EOL;
 		}
 
-		$output .= $this->includes( 'after' );
 		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_after', $output, $prefix );
 
 		$this->output = $output;
@@ -125,10 +131,6 @@ class WP_Modular_CSS_Builder {
 		return $value;
 	}
 
-	protected function includes ( $position ) {
-		return '';
-	}
-
 	protected function setup_special_syntax ( $string, $props = [] ) {
 		$result = $string;
 
@@ -178,13 +180,62 @@ class WP_Modular_CSS_Builder {
 		return $target;
 	}
 
-	protected function get_module ( $file_path ) {
-		if ( file_exists( $file_path ) ) {
-			ob_start();
-			include( $file_path );
-			return ob_get_clean();
+	protected function setup_config ( $config ) {
+		if ( ! is_array( $config ) ) {
+			throw new Exception( 'Builder config must be an array.' );
 		}
-		return false;
+
+		$debug_modules = [ 'debug', 'debug-children', 'debug-grid' ];
+
+		foreach ( $debug_modules as $module ) {
+			if ( ! isset( $config[ $module] ) ) {
+			$config[ $module ] = false;
+			} else {
+				if ( 'WP_DEBUG' === $config[ $module ] ) {
+					$config[ $module ] = defined( 'WP_DEBUG' ) ? WP_DEBUG : false;
+				} else if ( 'WP_DEBUG_SCRIPT' === $config[ $module ] ) {
+					$config[ $module ] = defined( 'WP_DEBUG_SCRIPT' ) ? WP_DEBUG_SCRIPT : false;
+				} else {
+					$config[ $module ] = boolval( $config[ $module ] );
+				}
+			}
+		}
+
+		if ( ! isset( $config['include-normalize'] ) ) {
+			$config['include-normalize'] = false;
+		}
+
+		if ( ! isset( $config['media-queries'] ) ) {
+			$config['media-queries'] = [];
+		}
+
+		if ( ! isset( $config['__enabled-modules'] ) ) {
+			$config['__enabled-modules'] = [];
+		}
+
+		$this->config = $config;
+	}
+
+	protected function includes_before () {
+		$debug_modules = [ 'debug', 'debug-children', 'debug-grid' ];
+		$result = '';
+
+		// includes tachyons header
+		$result .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/tachyons-header.css' );
+
+		// includes normalize
+		if ( true === $this->config['include-normalize'] ) {
+			$result .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/normalize.min.css' );
+		}
+
+		// includes debug modules
+		foreach ( $debug_modules as $module ) {
+			if ( true === $this->config[ $module ] ) {
+				$this->config['__enabled-modules'][ $module ] = [];
+			}
+		}
+
+		return $result;
 	}
 
 	protected function minify () {
