@@ -3,10 +3,12 @@
 Plugin Name: WP Modular CSS
 Plugin URI: https://github.com/luizbills/wp-modular-css
 Description: Generate customized Tachyons easily
-Version: 0.1.0
+Version: 1.0
 Author: Luiz Bills
 Author URI: https://luizpb.com/en
 Text Domain: wp-modular-css
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 if ( ! defined( 'WPINC' ) ) die();
