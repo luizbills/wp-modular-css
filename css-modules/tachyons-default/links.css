@@ -4,20 +4,18 @@
 
 .[[@use prefix]]link {
 	text-decoration: [[@use links text-decoration]];
+}
+
+.[[@use prefix]]link,
+.[[@use prefix]]link:link,
+.[[@use prefix]]link:visited,
+.[[@use prefix]]link:hover,
+.[[@use prefix]]link:active,
+.[[@use prefix]]link:focus {
+	-webkit-transition: [[@use links transition]];
 	transition: [[@use links transition]];
 }
 
-.[[@use prefix]]link:link,
-.[[@use prefix]]link:visited {
-	transition: [[@use links transition]];
-}
-.[[@use prefix]]link:hover   {
-	transition: [[@use links transition]];
-}
-.[[@use prefix]]link:active  {
-	transition: [[@use links transition]];
-}
-.[[@use prefix]]link:focus   {
-	transition: [[@use links transition]];
+.[[@use prefix]]link:focus {
 	outline: [[@use links outline]];
 }

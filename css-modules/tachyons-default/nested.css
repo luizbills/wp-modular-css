@@ -42,11 +42,13 @@
 
 .[[@use prefix]]nested-links a {
 	color: [[@use nested links-color]];
+	-webkit-transition: [[@use nested links-transition]];
 	transition: [[@use nested links-transition]];
 }
 
 .[[@use prefix]]nested-links a:hover,
 .[[@use prefix]]nested-links a:focus {
 	color: [[@use nested links-color-hover]];
+	-webkit-transition: [[@use nested links-transition]];
 	transition: [[@use nested links-transition]];
 }

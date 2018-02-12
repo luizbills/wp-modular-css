@@ -7,26 +7,32 @@
 */
 .[[@use prefix]]dim {
 	opacity: 1;
+	-webkit-transition: [[@use hovers dim:hover-transition]];
 	transition: [[@use hovers dim:hover-transition]];
 }
 .[[@use prefix]]dim:hover,
 .[[@use prefix]]dim:focus {
 	opacity: [[@use hovers dim:hover-opacity]];
+	-webkit-transition: [[@use hovers dim:hover-transition]];
 	transition: [[@use hovers dim:hover-transition]];
 }
 .[[@use prefix]]dim:active {
-	opacity: [[@use hovers dim:active-opacity]];; transition: [[@use hovers dim:active-transition]];
+	opacity: [[@use hovers dim:active-opacity]];
+	-webkit-transition: [[@use hovers dim:active-transition]];
+	transition: [[@use hovers dim:active-transition]];
 }
 
 /*
 	Animate opacity to 100% on hover by adding the glow class.
 */
 .[[@use prefix]]glow {
+	-webkit-transition: [[@use hovers glow-transition]];
 	transition: [[@use hovers glow-transition]];
 }
 .[[@use prefix]]glow:hover,
 .[[@use prefix]]glow:focus {
 	opacity: 1;
+	-webkit-transition: [[@use hovers glow-transition]];
 	transition: [[@use hovers glow-transition]];
 }
 
@@ -44,12 +50,14 @@
 
 .[[@use prefix]]hide-child .child {
 	opacity: 0;
+	-webkit-transition: [[@use hovers hide-child-transition]];
 	transition: [[@use hovers hide-child-transition]];
 }
 .[[@use prefix]]hide-child:hover  .child,
 .[[@use prefix]]hide-child:focus  .child,
 .[[@use prefix]]hide-child:active .child {
 	opacity: 1;
+	-webkit-transition: [[@use hovers hide-child-transition]];
 	transition: [[@use hovers hide-child-transition]];
 }
 
@@ -63,33 +71,43 @@
 
 .[[@use prefix]]grow {
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
+	-webkit-transition: [[@use hovers grow-transition]];
 	transition: [[@use hovers grow-transition]];
 }
 
 .[[@use prefix]]grow:hover,
 .[[@use prefix]]grow:focus {
+	-webkit-transform: scale([[@use hovers grow:hover-scale]]);
 	transform: scale([[@use hovers grow:hover-scale]]);
 }
 
 .[[@use prefix]]grow:active {
+	-webkit-transform: scale([[@use hovers grow:active-scale]]);
 	transform: scale([[@use hovers grow:active-scale]]);
 }
 
 .[[@use prefix]]grow-large {
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
+	-webkit-transition: [[@use hovers grow-large-transition]];
 	transition: [[@use hovers grow-large-transition]];
 }
 
 .[[@use prefix]]grow-large:hover,
 .[[@use prefix]]grow-large:focus {
+	-webkit-transform: scale([[@use hovers grow-large:hover-scale]]);
 	transform: scale([[@use hovers grow-large:hover-scale]]);
 }
 
 .[[@use prefix]]grow-large:active {
+	-webkit-transform: scale([[@use hovers grow-large:active-scale]]);
 	transform: scale([[@use hovers grow-large:active-scale]]);
 }
 
@@ -108,11 +126,13 @@
 .[[@use prefix]]shadow-hover {
 	cursor: pointer;
 	position: relative;
+	-webkit-transition: [[@use hovers shadow-hover-transition]];
 	transition: [[@use hovers shadow-hover-transition]];
 }
 
 .[[@use prefix]]shadow-hover::after {
 	content: '';
+	-webkit-box-shadow: [[@use hovers shadow-hover-box-shadow]];
 	box-shadow: [[@use hovers shadow-hover-box-shadow]];
 	border-radius: inherit;
 	opacity: 0;
@@ -122,7 +142,8 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-webkit-transition: [[@use hovers shadow-hover-transition]];
+	transition: [[@use hovers shadow-hover-transition]];
 }
 
 .[[@use prefix]]shadow-hover:hover::after,
@@ -136,6 +157,7 @@
 .[[@use prefix]]bg-animate,
 .[[@use prefix]]bg-animate:hover,
 .[[@use prefix]]bg-animate:focus {
+	-webkit-transition: [[@use hovers bg-animate-transition]];
 	transition: [[@use hovers bg-animate-transition]];
 }
 

@@ -3,11 +3,19 @@
 */
 
 [[@foreach rotations]]
-.[[@use prefix]]rotate-[[@index]] { rotate([[@value]]); }
+.[[@use prefix]]rotate-[[@index]] {
+	-webkit-transform: rotate([[@value]]);
+	    -ms-transform: rotate([[@value]]);
+	        transform: rotate([[@value]]);
+}
 [[/@foreach]]
 
 [[@responsive]]
 	[[@foreach rotations]]
-	.[[@use prefix]]rotate-[[@index]]-[[@screen-size]] { rotate([[@value]]); }
+	.[[@use prefix]]rotate-[[@index]]-[[@screen-size]] {
+		-webkit-transform: rotate([[@value]]);
+		    -ms-transform: rotate([[@value]]);
+		        transform: rotate([[@value]]);
+	}
 	[[/@foreach]]
 [[/@responsive]]
