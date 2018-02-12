@@ -13,7 +13,7 @@ Generate customized Tachyons CSS easily
 
 == Description ==
 
-Generate customized [Tachyons](http://tachyons.io CSS) easily.
+Generate customized [Tachyons CSS](http://tachyons.io) easily.
 
 Just go to **Settings -> Modular CSS** and change the default tachyons values to better meet your needs.
 
