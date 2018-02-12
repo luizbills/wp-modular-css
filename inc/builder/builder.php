@@ -11,6 +11,8 @@ class WP_Modular_CSS_Builder {
 	protected $output_min = null;
 	protected $css_modules;
 
+	protected static $registered_shortcodes = false;
+
 	function __construct( $config = [] ) {
 		$this->setup_config( $config );
 
@@ -27,6 +29,9 @@ class WP_Modular_CSS_Builder {
 	}
 
 	protected function register_shortcodes () {
+		if ( self::$registered_shortcodes ) return;
+		self::$registered_shortcodes = true;
+
 		add_shortcode( 'mcss_responsive', [ $this, 'shortcode_responsive' ] );
 		add_shortcode( 'mcss_use', [ $this, 'shortcode_use' ] );
 		add_shortcode( 'mcss_foreach', [ $this, 'shortcode_foreach' ] );
