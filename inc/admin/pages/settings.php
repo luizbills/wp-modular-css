@@ -20,8 +20,6 @@ class WP_Modular_CSS_Settings_Page {
 		$this->add_fields();
 
 		$this->page->setup_page_hooks( [ $this, 'setup_page_hooks' ] );
-
-
 	}
 
 	public function setup_page_hooks( $hook_suffix ) {
@@ -69,7 +67,7 @@ class WP_Modular_CSS_Settings_Page {
 	}
 
 	public function sanitize_config_json ( $value, $field_id ) {
-		$json = $this->parse_json( $value );
+		$json = WP_Modular_CSS::parse_json( $value );
 		if ( false === $json ) {
 			$message = sprintf('Failed to parse json string "%s"', json_last_error_msg() );
 			add_settings_error( $field_id, $field_id, $message );
@@ -80,7 +78,7 @@ class WP_Modular_CSS_Settings_Page {
 	public function generate_css_file () {
 		$the_page = wp_get_admin_page( 'wp-modular-css-settings' );
 		$value = $the_page->get_field_value( 'config_json' );
-		$config = $this->parse_json( $value );
+		$config = WP_Modular_CSS::parse_json( $value );
 
 		if ( false !== $config ) {
 			$minify_css = $the_page->get_field_value( 'minify' ) === 'on';
@@ -114,17 +112,6 @@ class WP_Modular_CSS_Settings_Page {
 		$desc .= ' | ["This Plugin" repository](https://github.com/luizbills/wp-modular-css)';
 
 		return $desc;
-	}
-
-	protected function parse_json( $json_string ) {
-		$json_string = utf8_encode( $json_string );
-		$json = json_decode( $json_string, true );
-
-		if ( ! is_null( $json ) && JSON_ERROR_NONE === json_last_error() ) {
-			return $json;
-		}
-
-		return false;
 	}
 
 	protected function get_default_config () {

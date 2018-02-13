@@ -59,4 +59,17 @@ class WP_Modular_CSS {
 		}
 		return self::$plugin_uploads_url;
 	}
+
+	public static function parse_json( $json_string, $utf8_encode = true ) {
+		$json_string = stripslashes( $json_string );
+		$json_string = $utf8_encode ? utf8_encode( $json_string ) : $json_string;
+
+		$json = json_decode( $json_string, true );
+
+		if ( ! is_null( $json ) && JSON_ERROR_NONE === json_last_error() ) {
+			return $json;
+		}
+
+		return false;
+	}
 }
