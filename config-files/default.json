@@ -1,16 +1,16 @@
 {
 	"prefix": "",
 
-	"debug": false,
+	"debug":          false,
 	"debug-children": false,
-	"debug-grid": false,
+	"debug-grid":     false,
 
 	"include-normalize": true,
 
 	"media-queries": {
 		"ns": "screen and (min-width: 30em)",
-		"m": "screen and (min-width: 30em) and (max-width: 60em)",
-		"l": "screen and (min-width: 60em)"
+		"m":  "screen and (min-width: 30em) and (max-width: 60em)",
+		"l":  "screen and (min-width: 60em)"
 	},
 
 	"colors": {
@@ -77,12 +77,12 @@
 		"washed-yellow": "#fffceb",
 		"washed-red":    "#ffdfdf",
 
-		"inherit": "inherit",
-		"transparent": "transparent"
+		"inherit":       "inherit",
+		"transparent":   "transparent"
 	},
 
 	"spacing": {
-		"0": 0,
+		"0": "0",
 		"1": ".25rem",
 		"2": ".5rem",
 		"3": "1rem",
@@ -117,35 +117,35 @@
 		"5": "4px 4px 8px 0px rgba( 0, 0, 0, 0.2 )"
 	},
 	"coordinates": {
-		"0": "0",
-		"1": "1rem",
-		"2": "2rem",
+		"0":  "0",
+		"1":  "1rem",
+		"2":  "2rem",
 		"-1": "-1rem",
 		"-2": "-2rem"
 	},
 	"font-family": {
-		"sans-serif": "-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif",
-		"serif": "georgia, times, serif",
+		"sans-serif":        "-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif",
+		"serif":             "georgia, times, serif",
 		"system-sans-serif": "sans-serif",
-		"system-serif": "serif",
-		"code": "Consolas, monaco, monospace",
-		"courier": "'Courier Next', courier, monospace",
-		"helvetica": "'helvetica neue', helvetica, sans-serif",
-		"avenir": "'avenir next', avenir, sans-serif",
-		"athelas": "athelas, georgia, serif",
-		"georgia": "georgia, serif",
-		"times": "times, serif",
-		"bodoni": "'Bodoni MT', serif",
-		"calisto": "'Calisto MT', serif",
-		"garamond": "garamond, serif",
-		"baskerville": "baskerville, serif"
+		"system-serif":      "serif",
+		"code":              "Consolas, monaco, monospace",
+		"courier":           "'Courier Next', courier, monospace",
+		"helvetica":         "'helvetica neue', helvetica, sans-serif",
+		"avenir":            "'avenir next', avenir, sans-serif",
+		"athelas":           "athelas, georgia, serif",
+		"georgia":           "georgia, serif",
+		"times":             "times, serif",
+		"bodoni":            "'Bodoni MT', serif",
+		"calisto":           "'Calisto MT', serif",
+		"garamond":          "garamond, serif",
+		"baskerville":       "baskerville, serif"
 	},
 	"heights": {
-		"1":    "1rem",
-		"2":    "2rem",
-		"3":    "4rem",
-		"4":    "8rem",
-		"5":    "16rem"
+		"1": "1rem",
+		"2": "2rem",
+		"3": "4rem",
+		"4": "8rem",
+		"5": "16rem"
 	},
 	"heights:percentages": {
 		"25":  "25",
@@ -166,7 +166,7 @@
 		"100": "100vh"
 	},
 	"heights:extras": {
-		"auto": "auto",
+		"auto":    "auto",
 		"inherit": "inherit"
 	},
 	"hovers": {
@@ -198,14 +198,14 @@
 		"mega":     ".25em"
 	},
 	"line-height": {
-		"solid": 1,
-		"title": 1.25,
-		"copy": 1.5
+		"solid": "1",
+		"title": "1.25",
+		"copy":  "1.5"
 	},
 	"links": {
 		"text-decoration": "none",
-		"transition": "color .15s ease-in",
-		"outline": "1px dotted currentColor"
+		"transition":      "color .15s ease-in",
+		"outline":         "1px dotted currentColor"
 	},
 	"margin": {
 		"0": "[[@use spacing 0]]",
@@ -244,13 +244,13 @@
 		"7": "[[@use spacing 7]]"
 	},
 	"nested": {
-		"copy-line-height": 1.5,
-		"headline-line-height": 1.25,
-		"copy-indent": "1em",
-		"copy-separator": "1.5rem",
-		"links-color": "[[@use colors blue]]",
-		"links-color-hover": "[[@use colors light-blue]]",
-		"links-transition": "color .15s ease-in"
+		"copy-line-height":     "1.5",
+		"headline-line-height": "1.25",
+		"copy-indent":          "1em",
+		"copy-separator":       "1.5rem",
+		"links-color":          "[[@use colors blue]]",
+		"links-color-hover":    "[[@use colors light-blue]]",
+		"links-transition":     "color .15s ease-in"
 	},
 	"opacity": {
 		"90":  ".9",
@@ -282,8 +282,8 @@
 		"7": "[[@use spacing 7]]"
 	},
 	"rotations": {
-		"45": "45deg",
-		"90": "90deg",
+		"45":  "45deg",
+		"90":  "90deg",
 		"135": "135deg",
 		"180": "180deg",
 		"225": "225deg",
@@ -341,15 +341,15 @@
 		"auto":       "auto"
 	},
 	"z-index": {
-		"0":       0,
-		"1":       1,
-		"2":       2,
-		"3":       3,
-		"4":       4,
-		"5":       5,
-		"999":     999,
-		"9999":    9999,
-		"max":     2147483647,
+		"0":       "0",
+		"1":       "1",
+		"2":       "2",
+		"3":       "3",
+		"4":       "4",
+		"5":       "5",
+		"999":     "999",
+		"9999":    "9999",
+		"max":     "2147483647",
 		"inherit": "inherit",
 		"initial": "initial",
 		"unset":   "unset"
