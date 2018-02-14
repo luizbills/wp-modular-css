@@ -1,0 +1,3 @@
+[submodule "Better WP Admin API"]
+	path = inc/better-wordpress-admin-api
+	url = https://github.com/luizbills/better-wordpress-admin-api
