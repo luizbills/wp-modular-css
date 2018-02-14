@@ -106,10 +106,10 @@ class WP_Modular_CSS_Settings_Page {
 		$desc = '';
 		$desc .= '<br>Tip: you can save usaing **ctrl + S** or **cmd + S**';
 		$desc .= '<br><br>Useful links:';
-		$desc .= '["JSON config file syntax docs" repository](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
-		$desc .= ' | [Tachyons docs](http://tachyons.io/docs)';
-		$desc .= ' | [Default JSON config](https://github.com/luizbills/wp-modular-css/blob/master/config-files/default.json)';
-		$desc .= ' | ["This Plugin" repository](https://github.com/luizbills/wp-modular-css)';
+		$desc .= '[JSON config documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
+		$desc .= ', [tachyons documentation](http://tachyons.io/docs)';
+		$desc .= ', [Default JSON config](https://github.com/luizbills/wp-modular-css/blob/master/config-files/default.json)';
+		$desc .= ', [Github repository](https://github.com/luizbills/wp-modular-css)';
 
 		return $desc;
 	}
