@@ -13,14 +13,14 @@ Generate customized Tachyons CSS easily
 
 == Description ==
 
-Generate customized [Tachyons CSS](http://tachyons.io) easily.
+Generate a custom [tachyons CSS](http://tachyons.io) build from a json configuration.
 
 Just go to **Settings -> Modular CSS** and change the default tachyons values to better meet your needs.
 
 Useful links:
 
 - [Github Repository](https://github.com/luizbills/wp-modular-css)
-- [Config syntax documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)
+- [JSON config documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)
 
 == Installation ==
 
