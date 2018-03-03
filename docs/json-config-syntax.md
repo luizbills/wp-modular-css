@@ -1,4 +1,4 @@
-# JSON Config file syntax
+# JSON config file properties
 
 ## Options
 
