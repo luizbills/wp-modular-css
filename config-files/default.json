@@ -1,7 +1,9 @@
 {
+	"config-version": "1.1.0",
+
 	"prefix": "",
 
-	"debug":          false,
+	"debug-all":      false,
 	"debug-children": false,
 	"debug-grid":     false,
 
@@ -148,10 +150,10 @@
 		"5": "16rem"
 	},
 	"heights:percentages": {
-		"25":  "25",
-		"50":  "50",
-		"75":  "75",
-		"100": "100"
+		"25":  "25%",
+		"50":  "50%",
+		"75":  "75%",
+		"100": "100%"
 	},
 	"heights:min-height": {
 		"100": "100%"
@@ -229,7 +231,7 @@
 		"9": "96rem"
 	},
 	"max-widths:percentages": {
-		"100": "100"
+		"100": "100%"
 	},
 	"max-widths:extras": {
 		"none": "none"
@@ -336,8 +338,8 @@
 		"100": "100%"
 	},
 	"widths:extras": {
-		"third":      "33.333333",
-		"two-thirds": "66.666667",
+		"third":      "33.333333%",
+		"two-thirds": "66.666667%",
 		"auto":       "auto"
 	},
 	"z-index": {
