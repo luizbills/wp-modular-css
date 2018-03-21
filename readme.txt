@@ -21,7 +21,6 @@ Useful links:
 
 - [Online Generator](https://tachyons.luizpb.com/)
 - [Github Repository](https://github.com/luizbills/wp-modular-css)
-- [JSON config documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)
 
 == Installation ==
 
@@ -43,11 +42,7 @@ Yes. In your config, remove the module's declaration in "__enabled-modules" prop
 
 == Changelog ==
 
-= 1.1 =
-* to do
-
-= 1.0 =
-* Initial release.
+* complete CHANGELOG in https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG
 
 == Upgrade Notice ==
 
