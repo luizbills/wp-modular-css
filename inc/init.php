@@ -2,7 +2,7 @@
 
 if ( ! defined( 'WPINC' ) ) die();
 
-require_once( __DIR__ . '/better-wordpress-admin-api/better-wp-admin-api/init.php' );
+require_once( __DIR__ . '/better-wordpress-admin-api/framework/init.php' );
 
 require_once( __DIR__ . '/admin/pages/settings.php' );
 
