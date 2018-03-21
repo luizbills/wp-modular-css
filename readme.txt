@@ -4,7 +4,7 @@ Donate link: https://www.luizpb.com/en/
 Tags: css, tachyons, modular, atomic, functional
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -42,6 +42,9 @@ Yes. In your config, remove the module's declaration in "__enabled-modules" prop
 1. Choose your own values like colors and spacing...
 
 == Changelog ==
+
+= 1.1 =
+* to do
 
 = 1.0 =
 * Initial release.
