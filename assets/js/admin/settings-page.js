@@ -24,6 +24,14 @@ window.jQuery( document.body ).on('better-wp-admin-api-code-editor-loaded', func
 		return submit;
 	});
 
+	// reset button
+	$('#reset-tachyons').on('click', function (evt) {
+		if ( confirm( "Are your sure? Your configuration will be lost if you confirm!" ) ) {
+			$('textarea#wp_modular_css_config_json').val('reset');
+			$('#wp-modular-css-settings > form #submit').trigger('click');
+		}
+	});
+
 	// get session line and column
 	var cursor = getCookie(cookie_cursor);
 

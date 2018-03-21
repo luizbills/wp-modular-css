@@ -36,13 +36,11 @@ class WP_Modular_CSS_Settings_Page {
 			'label'   => 'Tachyons values',
 			'default' => $this->get_default_config(),
 
-			'desc' => $this->get_code_editor_desc(),
-
 			'lang'              => 'json',
 			'height'            => 300,
 			'tab-size'          => 4,
 			'theme'             => 'monokai',
-			'font-size'         => 12,
+			'font-size'         => 14,
 			'show-print-margin' => false,
 
 			'sanitize_callback' => [ $this, 'sanitize_config_json' ],
@@ -64,9 +62,20 @@ class WP_Modular_CSS_Settings_Page {
 			'default' => 'on',
 			'after'   => 'Enable'
 		]);
+
+		$this->page->add_field([
+			'type'    => 'html',
+			'id'      => 'useful_info',
+			'label'   => 'Useful informations',
+			'content'   => [ $this, 'useful_informations' ]
+		]);
 	}
 
 	public function sanitize_config_json ( $value, $field_id ) {
+		if ( 'reset' === $value ) {
+			$value = $this->get_default_config();
+		}
+
 		$json = WP_Modular_CSS::parse_json( $value );
 		if ( false === $json ) {
 			$message = sprintf('Failed to parse json string "%s"', json_last_error_msg() );
@@ -102,16 +111,30 @@ class WP_Modular_CSS_Settings_Page {
 		);
 	}
 
-	protected function get_code_editor_desc () {
-		$desc = '';
-		$desc .= '<br>Tip: you can save usaing **ctrl + S** or **cmd + S**';
-		$desc .= '<br><br>Useful links:';
-		$desc .= '[JSON config documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
-		$desc .= ', [tachyons documentation](http://tachyons.io/docs)';
-		$desc .= ', [Default JSON config](https://github.com/luizbills/wp-modular-css/blob/master/config-files/default.json)';
-		$desc .= ', [Github repository](https://github.com/luizbills/wp-modular-css)';
+	public function useful_informations () {
+		$Parsedown = new Parsedown();
 
-		return $desc;
+		$reset_button = '<button type="button" class="button" id="reset-tachyons">Reset</button>';
+
+		$desc = '';
+		$desc .= '1. You can save using **ctrl + S** or **cmd + S** (with code editor focused)' . PHP_EOL;
+
+		$desc .= '1. Your generated css is saved in `wp-content/uploads/wp-modular-css/style.css`' . PHP_EOL;
+
+		$desc .= '1. Useful links:'  . PHP_EOL;
+		$desc .= '[JSON props documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
+		$desc .= ', [tachyons documentation](http://tachyons.io/docs)';
+		$desc .= ', [Github repository](https://github.com/luizbills/wp-modular-css)' . PHP_EOL;
+
+		$desc .= '1. Also, there is a [online version of this generator](https://tachyons.luizpb.com)' . PHP_EOL;
+
+		$desc .= '1. To reset your configuration use this button: <br>' . $reset_button . PHP_EOL;
+
+		$desc = $Parsedown->text( $desc );
+
+		$desc = str_replace( '<a ', '<a target="_blank" ', $desc );
+
+		echo $desc;
 	}
 
 	protected function get_default_config () {
