@@ -222,7 +222,11 @@ class WP_Modular_CSS_Builder {
 	}
 
 	protected function includes_before () {
-		$debug_modules = [ 'debug', 'debug-children', 'debug-grid' ];
+		$debug_modules = [
+			'debug-all' => 'debug',
+			'debug-children' => 'debug-children',
+			'debug-grid' => 'debug-grid'
+		];
 		$result = '';
 
 		// includes tachyons header
@@ -234,8 +238,8 @@ class WP_Modular_CSS_Builder {
 		}
 
 		// includes debug modules
-		foreach ( $debug_modules as $module ) {
-			if ( true === $this->config[ $module ] ) {
+		foreach ( $debug_modules as $conf_name => $module ) {
+			if ( true === $this->config[ $conf_name ] ) {
 				$this->config['__enabled-modules'][ $module ] = [];
 			}
 		}
