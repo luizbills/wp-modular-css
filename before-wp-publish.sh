@@ -3,10 +3,14 @@
 echo "Use git master branch"
 git checkout master
 
-if [[ -f "composer.json" ]];
-then
+if [[ -f "composer.json" ]]; then
 	echo "Installing composer packages"
 	composer install
+	
+	if [[ ! -d "vendor" ]]; then
+		echo "Please install composer https://getcomposer.org/download/"
+		exit 1
+	fi
 fi
 
 echo "Removing unwanted files"
