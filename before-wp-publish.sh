@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Use git master branch"
 git checkout master
 
 if [[ -f "composer.json" ]];
@@ -31,3 +32,4 @@ rm -f .editorconfig
 rm -f .scrutinizer.yml
 rm -f apigen.neon
 rm -f CONTRIBUTING.md
+rm -f before-wp-publish.sh # remove itself
