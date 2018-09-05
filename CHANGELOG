@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- added 'Custom CSS' feature
+
 ### Changed
+
+- updated tachyons to v4.11.1
 
 ### Removed
 

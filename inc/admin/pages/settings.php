@@ -6,14 +6,13 @@ class WP_Modular_CSS_Settings_Page {
 
 	public static $instance = null;
 
-	public $page = null;
+	protected $page = null;
 
 	private function __construct () {
 		$this->page = wp_create_admin_page( [
 			'id' => 'wp-modular-css-settings',
 			'menu_name' => 'Modular CSS',
 			'parent' => 'options-general.php',
-
 			'prefix' => WP_Modular_CSS::PREFIX,
 		] );
 
@@ -29,7 +28,6 @@ class WP_Modular_CSS_Settings_Page {
 	}
 
 	public function add_fields () {
-
 		$this->page->add_field([
 			'type'    => 'code',
 			'id'      => 'config_json',
@@ -45,7 +43,20 @@ class WP_Modular_CSS_Settings_Page {
 
 			'sanitize_callback' => [ $this, 'sanitize_config_json' ],
 
-			//'before' => '<button type="button" class="button" id="wp-modular-css-export">Export</button><button type="button" class="button" id="wp-modular-css-import">Import</button>'
+			//'after' => '<button type="button" class="button" id="wp-modular-css-export">Export CSS</button>'
+		]);
+
+		$this->page->add_field([
+			'type'    => 'code',
+			'id'      => 'custom_css',
+			'label'   => 'Custom CSS',
+			'default' => $this->get_default_custom_css(),
+			'lang'              => 'css',
+			'height'            => 300,
+			'tab-size'          => 4,
+			'theme'             => 'monokai',
+			'font-size'         => 14,
+			'show-print-margin' => false,
 		]);
 
 		$this->page->add_field([
@@ -69,6 +80,10 @@ class WP_Modular_CSS_Settings_Page {
 			'label'   => 'Useful informations',
 			'content'   => [ $this, 'useful_informations' ]
 		]);
+	}
+
+	protected function get_default_custom_css () {
+		return file_get_contents( WP_Modular_CSS::DIR . '/assets/css/custom-css.css' );
 	}
 
 	public function sanitize_config_json ( $value, $field_id ) {
@@ -100,7 +115,7 @@ class WP_Modular_CSS_Settings_Page {
 
 	public function enqueue_scripts () {
 		wp_enqueue_script(
-			WP_Modular_CSS::DOMAIN . '-settings-page',
+			WP_Modular_CSS::SLUG . '-settings-page',
 			plugins_url( 'assets/js/admin/settings-page.js', WP_Modular_CSS::FILE ),
 			[
 				'jquery',

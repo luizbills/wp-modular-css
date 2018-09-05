@@ -1,0 +1,22 @@
+/*
+
+Put custom css here.
+
+Here you can use special shortcodes.
+
+Examples:
+
+Use defined color black
+.title { color: [[@use colors.black]] }
+
+Use the prefix
+.[[@use prefix]]some-class { font-family: monospace }
+
+Create a responsive class
+[[@resposive]]
+.myclass-[[@screen-size]] { color: red }
+[[/@responsive]]
+
+learn more: https://github.com/luizbills/wp-modular-css/tree/master/css-modules/tachyons-default
+
+*/

@@ -35,6 +35,8 @@ class WP_Modular_CSS_Builder {
 		add_shortcode( 'mcss_responsive', [ $this, 'shortcode_responsive' ] );
 		add_shortcode( 'mcss_use', [ $this, 'shortcode_use' ] );
 		add_shortcode( 'mcss_foreach', [ $this, 'shortcode_foreach' ] );
+		
+		add_filter( WP_Modular_CSS::PREFIX . 'build_output_after', [ $this, 'include_custom_css' ], 10, 2 );
 	}
 
 	public function load_modules () {
@@ -245,6 +247,16 @@ class WP_Modular_CSS_Builder {
 		}
 
 		return $result;
+	}
+	
+	public function include_custom_css ( $output, $prefix ) {
+		$custom_css = WP_Modular_CSS::get_setting( 'custom_css' );
+		
+		$compiled_css = do_shortcode( $this->setup_special_syntax( $custom_css, [ 'responsive' ] ) );
+		// remove @default
+		$compiled_css = str_replace( [ '-@default', '@default' ], '', $compiled_css );
+		
+		return $output . PHP_EOL . $compiled_css;
 	}
 
 	protected function minify () {
