@@ -112,6 +112,7 @@ rm -f package.json
 rm -f .jscrsrc
 rm -f .jshintrc
 rm -f composer.json
+rm -f composer.lock
 rm -f phpunit.xml
 rm -f phpunit.xml.dist
 rm -f README.md
