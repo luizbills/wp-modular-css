@@ -3,7 +3,7 @@ Contributors: luizbills
 Donate link: https://www.luizpb.com/en/
 Tags: css, tachyons, modular, atomic, functional
 Requires at least: 4.6
-Tested up to: 4.9
+Tested up to: 5.2
 Stable tag: 1.2.0
 Requires PHP: 5.4
 License: GPLv2 or later
