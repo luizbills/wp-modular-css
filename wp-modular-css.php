@@ -4,7 +4,7 @@ Plugin Name: WP Modular CSS
 Plugin URI: https://github.com/luizbills/wp-modular-css
 GitHub Plugin URI: luizbills/wp-modular-css
 Description: Generate customized Tachyons easily
-Version: 2.0.1
+Version: 2.1.0
 Author: Luiz Bills
 Author URI: https://luizpb.com/en
 Text Domain: wp-modular-css
@@ -19,7 +19,7 @@ include_once __DIR__ . '/inc/init.php';
 
 class WP_Modular_CSS {
 
-	const VERSION = '1.2.1'; // plugin version
+	const VERSION = '2.1.0'; // plugin version
 	const TACHYONS_VERSION = '4.11.1';
 
 	const FILE = __FILE__;
@@ -36,9 +36,15 @@ class WP_Modular_CSS {
 		file_put_contents( $dir . $filename, $content );
 	}
 
+	public static function delete_file ( $filename, $content ) {
+		$dir = self::get_plugin_uploads_folder();
+
+		file_put_contents( $dir . $filename, $content );
+	}
+
 	public static function get_plugin_uploads_folder () {
 		if ( is_null( self::$plugin_uploads_folder ) ) {
-			$upload_dir   = wp_upload_dir();
+			$upload_dir = wp_upload_dir();
 
 			if ( ! empty( $upload_dir['basedir'] ) ) {
 				self::$plugin_uploads_folder = $upload_dir['basedir'] . '/' . self::SLUG . '/';
@@ -61,7 +67,7 @@ class WP_Modular_CSS {
 		return self::$plugin_uploads_url;
 	}
 
-	public static function parse_json( $json_string, $utf8_encode = true ) {
+	public static function parse_json ( $json_string, $utf8_encode = true ) {
 		$json_string = stripslashes( $json_string );
 		$json_string = $utf8_encode ? utf8_encode( $json_string ) : $json_string;
 
