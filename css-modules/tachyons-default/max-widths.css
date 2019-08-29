@@ -5,7 +5,7 @@
 /* Max Width Percentages */
 
 [[@foreach max-widths:percentages]]
-.[[@use prefix]]mw-[[@index]] { max-width: [[@value]]%; }
+.[[@use prefix]]mw-[[@index]] { max-width: [[@value]]; }
 [[/@foreach]]
 
 /* Max Width Scale */
@@ -22,7 +22,7 @@
 
 [[@responsive]]
 	[[@foreach max-widths:percentages]]
-	.[[@use prefix]]mw-[[@index]]-[[@screen-size]] { max-width: [[@value]]%; }
+	.[[@use prefix]]mw-[[@index]]-[[@screen-size]] { max-width: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach max-widths]]

@@ -3,11 +3,11 @@
 */
 
 [[@foreach z-index]]
-.[[@use prefix]]z-[[@index]] { z-index: [[@value]] }
+.[[@use prefix]]z-[[@index]] { z-index: [[@value]]; }
 [[/@foreach]]
 
 [[@responsive]]
 	[[@foreach z-index]]
-	.[[@use prefix]]z-[[@index]]-[[@screen-size]] { z-index: [[@value]] }
+	.[[@use prefix]]z-[[@index]]-[[@screen-size]] { z-index: [[@value]]; }
 	[[/@foreach]]
 [[/@responsive]]

@@ -3,11 +3,11 @@
 */
 
 [[@foreach colors]]
-.[[@use prefix]]b--[[@index]] { border-color: [[@value]] }
+.[[@use prefix]]b--[[@index]] { border-color: [[@value]]; }
 [[/@foreach]]
 
 [[@responsive]]
 	[[@foreach colors]]
-	.[[@use prefix]]b--[[@index]]-[[@screen-size]] { border-color: [[@value]] }
+	.[[@use prefix]]b--[[@index]]-[[@screen-size]] { border-color: [[@value]]; }
 	[[/@foreach]]
 [[/@responsive]]

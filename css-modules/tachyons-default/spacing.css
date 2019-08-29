@@ -5,23 +5,23 @@
 /* Padding */
 
 [[@foreach padding]]
-.[[@use prefix]]pa[[@index]] { padding: [[@value]] }
+.[[@use prefix]]pa[[@index]] { padding: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach padding]]
-.[[@use prefix]]pl[[@index]] { padding-left: [[@value]] }
+.[[@use prefix]]pl[[@index]] { padding-left: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach padding]]
-.[[@use prefix]]pr[[@index]] { padding-right: [[@value]] }
+.[[@use prefix]]pr[[@index]] { padding-right: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach padding]]
-.[[@use prefix]]pb[[@index]] { padding-bottom: [[@value]] }
+.[[@use prefix]]pb[[@index]] { padding-bottom: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach padding]]
-.[[@use prefix]]pt[[@index]] { padding-top: [[@value]] }
+.[[@use prefix]]pt[[@index]] { padding-top: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach padding]]
@@ -41,23 +41,23 @@
 /* Margin */
 
 [[@foreach margin]]
-.[[@use prefix]]ma[[@index]] { margin: [[@value]] }
+.[[@use prefix]]ma[[@index]] { margin: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach margin]]
-.[[@use prefix]]ml[[@index]] { margin-left: [[@value]] }
+.[[@use prefix]]ml[[@index]] { margin-left: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach margin]]
-.[[@use prefix]]mr[[@index]] { margin-right: [[@value]] }
+.[[@use prefix]]mr[[@index]] { margin-right: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach margin]]
-.[[@use prefix]]mb[[@index]] { margin-bottom: [[@value]] }
+.[[@use prefix]]mb[[@index]] { margin-bottom: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach margin]]
-.[[@use prefix]]mt[[@index]] { margin-top: [[@value]] }
+.[[@use prefix]]mt[[@index]] { margin-top: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach margin]]
@@ -76,23 +76,23 @@
 
 [[@responsive]]
 	[[@foreach padding]]
-	.[[@use prefix]]pa[[@index]]-[[@screen-size]] { padding: [[@value]] }
+	.[[@use prefix]]pa[[@index]]-[[@screen-size]] { padding: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach padding]]
-	.[[@use prefix]]pl[[@index]]-[[@screen-size]] { padding-left: [[@value]] }
+	.[[@use prefix]]pl[[@index]]-[[@screen-size]] { padding-left: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach padding]]
-	.[[@use prefix]]pr[[@index]]-[[@screen-size]] { padding-right: [[@value]] }
+	.[[@use prefix]]pr[[@index]]-[[@screen-size]] { padding-right: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach padding]]
-	.[[@use prefix]]pb[[@index]]-[[@screen-size]] { padding-bottom: [[@value]] }
+	.[[@use prefix]]pb[[@index]]-[[@screen-size]] { padding-bottom: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach padding]]
-	.[[@use prefix]]pt[[@index]]-[[@screen-size]] { padding-top: [[@value]] }
+	.[[@use prefix]]pt[[@index]]-[[@screen-size]] { padding-top: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach padding]]
@@ -111,23 +111,23 @@
 
 
 	[[@foreach margin]]
-	.[[@use prefix]]ma[[@index]]-[[@screen-size]] { margin: [[@value]] }
+	.[[@use prefix]]ma[[@index]]-[[@screen-size]] { margin: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach margin]]
-	.[[@use prefix]]ml[[@index]]-[[@screen-size]] { margin-left: [[@value]] }
+	.[[@use prefix]]ml[[@index]]-[[@screen-size]] { margin-left: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach margin]]
-	.[[@use prefix]]mr[[@index]]-[[@screen-size]] { margin-right: [[@value]] }
+	.[[@use prefix]]mr[[@index]]-[[@screen-size]] { margin-right: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach margin]]
-	.[[@use prefix]]mb[[@index]]-[[@screen-size]] { margin-bottom: [[@value]] }
+	.[[@use prefix]]mb[[@index]]-[[@screen-size]] { margin-bottom: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach margin]]
-	.[[@use prefix]]mt[[@index]]-[[@screen-size]] { margin-top: [[@value]] }
+	.[[@use prefix]]mt[[@index]]-[[@screen-size]] { margin-top: [[@value]]; }
 	[[/@foreach]]
 
 	[[@foreach margin]]
