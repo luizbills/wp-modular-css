@@ -7,7 +7,7 @@
 [[/@foreach]]
 
 [[@foreach heights:percentages]]
-.[[@use prefix]]h-[[@index]] { height: [[@value]]%; }
+.[[@use prefix]]h-[[@index]] { height: [[@value]]; }
 [[/@foreach]]
 
 [[@foreach heights:min-height]]
