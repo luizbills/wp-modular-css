@@ -29,10 +29,24 @@ class WP_Modular_CSS_Settings_Page {
 
 	public function add_fields () {
 		$this->page->add_field([
+			'type'    => 'select',
+			'id'      => 'css_reset',
+			'label'   => 'CSS Reset',
+			'choices' => [
+				'normalize' => 'Normalize.css v8.0.1',
+				'minireset' => 'minireset v0.0.5',
+				'none' => 'none'
+			],
+			'default' => 'normalize'
+		]);
+
+		$this->page->add_field([
 			'type'    => 'code',
 			'id'      => 'config_json',
 			'label'   => 'Tachyons values',
 			'default' => $this->get_default_config(),
+
+			'after' => '<button type="button" class="button button-large" id="reset-tachyons" style="margin-top: 10px;">Reset to default values</button>',
 
 			'lang'              => 'json',
 			'height'            => 300,
@@ -57,6 +71,13 @@ class WP_Modular_CSS_Settings_Page {
 			'theme'             => 'monokai',
 			'font-size'         => 14,
 			'show-print-margin' => false,
+		]);
+
+		$this->page->add_field([
+			'type'    => 'checkbox',
+			'id'      => 'important_in_props',
+			'label'   => 'Add <code>!important</code> in all properties',
+			'after'   => 'Enable',
 		]);
 
 		$this->page->add_field([
@@ -124,12 +145,20 @@ class WP_Modular_CSS_Settings_Page {
 			WP_Modular_CSS::VERSION,
 			true
 		);
+
+		wp_localize_script(
+			WP_Modular_CSS::SLUG . '-settings-page',
+			WP_Modular_CSS::PREFIX . 'settings',
+			[
+				'messages' => [
+					'error_config_json_syntax' => __( 'Invalid JSON Syntax. Please fix your "Tachyons values" field.', 'wp-modular-css' ),
+				],
+			]
+		);
 	}
 
 	public function useful_informations () {
 		$Parsedown = new Parsedown();
-
-		$reset_button = '<button type="button" class="button" id="reset-tachyons">Reset</button>';
 
 		$desc = '';
 		$desc .= '1. You can save using **ctrl + S** or **cmd + S** (with code editor focused)' . PHP_EOL;
@@ -140,10 +169,6 @@ class WP_Modular_CSS_Settings_Page {
 		$desc .= '[JSON props documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
 		$desc .= ', [tachyons documentation](http://tachyons.io/docs)';
 		$desc .= ', [Github repository](https://github.com/luizbills/wp-modular-css)' . PHP_EOL;
-
-		$desc .= '1. Also, there is a [online version of this generator](https://tachyons.luizpb.com)' . PHP_EOL;
-
-		$desc .= '1. To reset your configuration use this button: <br>' . $reset_button . PHP_EOL;
 
 		$desc = $Parsedown->text( $desc );
 

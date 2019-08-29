@@ -35,8 +35,14 @@ class WP_Modular_CSS_Builder {
 		add_shortcode( 'mcss_responsive', [ $this, 'shortcode_responsive' ] );
 		add_shortcode( 'mcss_use', [ $this, 'shortcode_use' ] );
 		add_shortcode( 'mcss_foreach', [ $this, 'shortcode_foreach' ] );
-		
+
+		add_filter( WP_Modular_CSS::PREFIX . 'build_output_before', [ $this, 'includes_before' ], 10, 2 );
 		add_filter( WP_Modular_CSS::PREFIX . 'build_output_after', [ $this, 'include_custom_css' ], 10, 2 );
+		add_filter( WP_Modular_CSS::PREFIX . 'build_output_after', [ $this, 'include_debug_modules' ], 20, 2 );
+
+		if ( 'on' === WP_Modular_CSS::get_setting( 'important_in_props' ) ) {
+			add_filter( WP_Modular_CSS::PREFIX . 'css_module_output', [ $this, 'put_important_in_properties' ], \PHP_INT_MAX, 2 );
+		}
 	}
 
 	public function load_modules () {
@@ -57,33 +63,21 @@ class WP_Modular_CSS_Builder {
 	}
 
 	protected function build () {
-		$output = '';
+		$before = '';
+		$modules = '';
+		$after = '';
+
 		$prefix = isset( $this->config['prefix'] ) ? $this->config['prefix'] : '';
 
-		$output .= $this->includes_before();
-
-		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_before', $output, $prefix );
+		$before = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_before', $before, $prefix );
 
 		foreach( $this->config['__enabled-modules'] as $module_name => $module_props ) {
-			$module_content = isset( $this->css_modules[ $module_name ] ) ? $this->css_modules[ $module_name ] : false;
-			if ( empty( $module_content ) ) continue;
-
-			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_' . $module_name, $module_content, $prefix, $module_name );
-
-			$module_content = $this->setup_special_syntax( $module_content, $module_props );
-			$module_content = do_shortcode( $module_content );
-
-			// remove @default
-			$module_content = str_replace( [ '-@default', '@default' ], '', $module_content );
-
-			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_output_' . $module_name, $module_content, $prefix, $module_name );
-
-			$output .= trim( $module_content ) . PHP_EOL . PHP_EOL;
+			$modules .= $this->include_module( $module_name, $module_props );
 		}
 
-		$output = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_after', $output, $prefix );
+		$after = apply_filters( WP_Modular_CSS::PREFIX . 'build_output_after', $after, $prefix );
 
-		$this->output = $output;
+		$this->output = $before . $modules . $after;
 	}
 
 	public function shortcode_responsive ( $args = [], $content = '' ) {
@@ -136,6 +130,28 @@ class WP_Modular_CSS_Builder {
 		$value = $this->get_config_value( implode( '.', $args ) );
 
 		return $value;
+	}
+
+	protected function include_module ( $module_name, $module_props ) {
+		$prefix = isset( $this->config['prefix'] ) ? $this->config['prefix'] : '';
+		$module_content = isset( $this->css_modules[ $module_name ] ) ? $this->css_modules[ $module_name ] : false;
+
+		if ( ! empty( $module_content ) ) {
+			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_' . $module_name, $module_content, $prefix, $module_name );
+
+			$module_content = $this->setup_special_syntax( $module_content, $module_props );
+			$module_content = do_shortcode( $module_content );
+
+			// remove @default
+			$module_content = str_replace( [ '-@default', '@default' ], '', $module_content );
+
+			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_output', $module_content, $prefix, $module_name );
+			$module_content = apply_filters( WP_Modular_CSS::PREFIX . 'css_module_output_' . $module_name, $module_content, $prefix, $module_name );
+
+
+			return trim( $module_content ) . PHP_EOL . PHP_EOL;
+		}
+		return '';
 	}
 
 	protected function setup_special_syntax ( $string, $props = [] ) {
@@ -223,40 +239,49 @@ class WP_Modular_CSS_Builder {
 		$this->config = $config;
 	}
 
-	protected function includes_before () {
+	public function includes_before ( $output, $prefix ) {
+		$css_reset = WP_Modular_CSS::get_setting( 'css_reset' );
+
+		// includes tachyons header
+		$output .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/tachyons-header.css' );
+
+		// includes normalize
+		if ( 'none' !== $css_reset ) {
+			$output .= file_get_contents( WP_Modular_CSS::DIR . "/css-includes/$css_reset.css" );
+		}
+
+		return $output;
+	}
+
+	public function include_debug_modules ( $output, $prefix ) {
 		$debug_modules = [
 			'debug-all' => 'debug',
 			'debug-children' => 'debug-children',
 			'debug-grid' => 'debug-grid'
 		];
-		$result = '';
+		$modules = '';
 
-		// includes tachyons header
-		$result .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/tachyons-header.css' );
-
-		// includes normalize
-		if ( true === $this->config['include-normalize'] ) {
-			$result .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/normalize.min.css' );
-		}
-
-		// includes debug modules
-		foreach ( $debug_modules as $conf_name => $module ) {
-			if ( true === $this->config[ $conf_name ] ) {
-				$this->config['__enabled-modules'][ $module ] = [];
+		foreach ( $debug_modules as $conf_name => $module_name ) {
+			if ( true == $this->config[ $conf_name ] ) {
+				$modules .= $this->include_module( $module_name, [] );
 			}
 		}
 
-		return $result;
+		return $output . PHP_EOL . $modules;
 	}
-	
+
 	public function include_custom_css ( $output, $prefix ) {
 		$custom_css = WP_Modular_CSS::get_setting( 'custom_css' );
-		
+
 		$compiled_css = do_shortcode( $this->setup_special_syntax( $custom_css, [ 'responsive' ] ) );
 		// remove @default
 		$compiled_css = str_replace( [ '-@default', '@default' ], '', $compiled_css );
-		
+
 		return $output . PHP_EOL . $compiled_css;
+	}
+
+	public function put_important_in_properties ( $output, $prefix ) {
+		return preg_replace( '/(?<!important);/', '!important;', $output );
 	}
 
 	protected function minify () {

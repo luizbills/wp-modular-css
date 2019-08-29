@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Security
 
+## [2.0.0]
+
+### Added
+
+- added '`!important` in all properties' feature #9
+- added option to a choose a CSS Reset
+
+### Fixed
+
+- fixed some css properties with "%"
+- fixed missing semicolons
+- correct version in css file header #10
+
+### Removed
+
+- removed reference of the online generator #11
+
 ## [1.2.0]
 
 ### Added

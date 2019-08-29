@@ -5,8 +5,6 @@
 	"debug-children": false,
 	"debug-grid":     false,
 
-	"include-normalize": true,
-
 	"media-queries": {
 		"ns": "screen and (min-width: 30em)",
 		"m":  "screen and (min-width: 30em) and (max-width: 60em)",
