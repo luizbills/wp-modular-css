@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Security
 
+## [2.0.1]
+
+### Fixed
+
+- fixed height percentages
+
 ## [2.0.0]
 
 ### Added
