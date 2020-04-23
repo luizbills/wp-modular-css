@@ -30,16 +30,21 @@ class WP_Modular_CSS {
 	protected static $plugin_uploads_folder = null;
 	protected static $plugin_uploads_url = null;
 
-	public static function write_file ( $filename, $content ) {
+	public static function write_file ( $content ) {
 		$dir = self::get_plugin_uploads_folder();
-
-		file_put_contents( $dir . $filename, $content );
+		file_put_contents( $dir . self::get_css_file_name(), $content );
 	}
 
-	public static function delete_file ( $filename, $content ) {
-		$dir = self::get_plugin_uploads_folder();
+	public static function generate_css_file () {
+		$value = self::get_setting( 'config_json' );
+		$config = self::parse_json( $value );
 
-		file_put_contents( $dir . $filename, $content );
+		if ( false !== $config ) {
+			$minify_css = self::get_setting( 'minify' ) === 'on';
+			$builder = new WP_Modular_CSS_Builder( $config );
+
+			self::write_file( $builder->get_output( $minify_css ) );
+		}
 	}
 
 	public static function get_plugin_uploads_folder () {
@@ -65,6 +70,18 @@ class WP_Modular_CSS {
 			self::$plugin_uploads_url = esc_url( $upload_dir['baseurl'] . '/' . self::SLUG . '/' );
 		}
 		return self::$plugin_uploads_url;
+	}
+
+	public static function get_css_file_name () {
+		return 'style-' . self::VERSION . '.css';
+	}
+
+	public static function get_css_file_path () {
+		return self::get_plugin_uploads_folder() . self::get_css_file_name();
+	}
+
+	public static function get_css_file_url () {
+		return self::get_plugin_uploads_url() . self::get_css_file_name();
 	}
 
 	public static function parse_json ( $json_string, $utf8_encode = true ) {

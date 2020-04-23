@@ -38,7 +38,7 @@ class WP_Modular_CSS_Settings_Page {
 	public function setup_page_hooks( $hook_suffix ) {
 		add_action( 'admin_print_styles-' . $hook_suffix, [ $this, 'enqueue_scripts' ], 20 );
 
-		add_action( 'load-'. $hook_suffix, [ $this, 'generate_css_file' ], 10 );
+		add_action( 'load-'. $hook_suffix, [ 'WP_Modular_CSS', 'generate_css_file' ], 10 );
 	}
 
 	public function add_fields () {
@@ -134,20 +134,6 @@ class WP_Modular_CSS_Settings_Page {
 		return $value;
 	}
 
-	public function generate_css_file () {
-		$the_page = wp_get_admin_page( 'wp-modular-css-settings' );
-		$value = $the_page->get_field_value( 'config_json' );
-		$config = WP_Modular_CSS::parse_json( $value );
-
-		if ( false !== $config ) {
-			$minify_css = $the_page->get_field_value( 'minify' ) === 'on';
-			$filename = 'style.css';
-			$builder = new WP_Modular_CSS_Builder( $config );
-
-			WP_Modular_CSS::write_file( $filename, $builder->get_output( $minify_css ) );
-		}
-	}
-
 	public function enqueue_scripts () {
 		wp_enqueue_script(
 			WP_Modular_CSS::SLUG . '-settings-page',
@@ -176,9 +162,8 @@ class WP_Modular_CSS_Settings_Page {
 
 		$desc = '';
 		$desc .= '1. You can save using **ctrl + S** or **cmd + S** (with code editor focused)' . PHP_EOL;
-
-		$desc .= '1. Your generated css is saved in `wp-content/uploads/wp-modular-css/style.css`' . PHP_EOL;
-
+		$desc .= '1. Use the following method to get the URL of generated CSS: `WP_Modular_CSS::get_css_file_url()`' . PHP_EOL;
+		$desc .= '1. View the generated CSS [here](' . WP_Modular_CSS::get_css_file_url() . ')' . PHP_EOL;
 		$desc .= '1. Useful links:'  . PHP_EOL;
 		$desc .= '[JSON props documentation](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)';
 		$desc .= ', [tachyons documentation](http://tachyons.io/docs)';
