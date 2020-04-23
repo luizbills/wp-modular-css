@@ -4,7 +4,7 @@ Donate link: https://www.luizpb.com/en/
 Tags: css, tachyons, modular, atomic, functional
 Requires at least: 4.6
 Tested up to: 5.4
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -19,6 +19,7 @@ Just go to **Settings -> Modular CSS** and change the default tachyons values to
 
 Useful links:
 
+- [Plugin config file docs](https://github.com/luizbills/wp-modular-css/blob/master/docs/json-config-syntax.md)
 - [Github Repository](https://github.com/luizbills/wp-modular-css)
 - [Tachyons Documentation](http://tachyons.io/docs/)
 
@@ -31,7 +32,7 @@ Useful links:
 == Frequently Asked Questions ==
 
 = I can choose what parts of tachyons will be responsive? =
-Yes. In your config, put "responsive" word inside of module's array in "__enabled-modules" property.
+Yes. In your config, put ou remove "responsive" word inside of module's array in "__enabled-modules" property.
 
 = I can delete/remove any module of my custom tachyons? =
 Yes. In your config, remove the module's declaration in "__enabled-modules" property.
@@ -42,7 +43,7 @@ Yes. In your config, remove the module's declaration in "__enabled-modules" prop
 
 == Changelog ==
 
-* complete CHANGELOG in https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG
+* complete CHANGELOG in [https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG](https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG)
 
 == Upgrade Notice ==
 
