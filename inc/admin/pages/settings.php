@@ -32,7 +32,6 @@ class WP_Modular_CSS_Settings_Page {
 		$url = admin_url( 'options-general.php?page=' . $this->page_args['id'] );
 		$links[] = "<a href='$url' $atts>$label</url>";
 		return $links;
-		error_log('???');
 	}
 
 	public function setup_page_hooks( $hook_suffix ) {
