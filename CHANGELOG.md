@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- added a Settings link on plugins page in admin.
+- Added a link to view the generated CSS in the settings page.
+- Added a Settings link on plugins page in admin.
 
 ### Changed
 
