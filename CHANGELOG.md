@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+### Changed
+### Removed
+### Fixed
+### Security
+
+## [2.2.1]
+
+### Removed
+
+- Removed some `ace.js` unused files
+
+### Changed
+
+- Reverted a change in CSS header
+- CSS header now includes the plugin "full" version
+
 ## [2.2.0]
 
 ### Added

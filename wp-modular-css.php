@@ -4,7 +4,7 @@ Plugin Name: WP Modular CSS
 Plugin URI: https://github.com/luizbills/wp-modular-css
 GitHub Plugin URI: luizbills/wp-modular-css
 Description: Generate customized Tachyons easily
-Version: 2.2.0
+Version: 2.2.1
 Author: Luiz Bills
 Author URI: https://luizpb.com/en
 Text Domain: wp-modular-css
@@ -19,7 +19,7 @@ include_once __DIR__ . '/inc/init.php';
 
 class WP_Modular_CSS {
 
-	const VERSION = '2.2.0'; // plugin version
+	const VERSION = '2.2.1'; // plugin version
 	const TACHYONS_VERSION = '4.11.2'; // tachyons.css version
 
 	const FILE = __FILE__;
@@ -31,8 +31,7 @@ class WP_Modular_CSS {
 	protected static $plugin_uploads_url = null;
 
 	public static function write_file ( $content ) {
-		$dir = self::get_plugin_uploads_folder();
-		file_put_contents( $dir . self::get_css_file_name(), $content );
+		file_put_contents( self::get_css_file_path(), $content );
 	}
 
 	public static function generate_css_file () {
