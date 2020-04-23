@@ -29,14 +29,13 @@ class WP_Modular_CSS_Settings_Page {
 
 	public function add_settings_link ( $links ) {
 		$label = esc_html__( 'Settings', 'wp-modular-css' );
-		$url = admin_url( 'options-general.php?page=' . $this->page_args['id'] );
-		$links[] = "<a href='$url' $atts>$label</url>";
+		$url = esc_attr( admin_url( 'options-general.php?page=' . $this->page_args['id'] ) );
+		$links[] = "<a href='$url'>$label</url>";
 		return $links;
 	}
 
 	public function setup_page_hooks( $hook_suffix ) {
 		add_action( 'admin_print_styles-' . $hook_suffix, [ $this, 'enqueue_scripts' ], 20 );
-
 		add_action( 'load-'. $hook_suffix, [ 'WP_Modular_CSS', 'generate_css_file' ], 10 );
 	}
 
