@@ -9,16 +9,30 @@ class WP_Modular_CSS_Settings_Page {
 	protected $page = null;
 
 	private function __construct () {
-		$this->page = wp_create_admin_page( [
+		// settings page
+		$this->page_args = [
 			'id' => 'wp-modular-css-settings',
 			'menu_name' => 'Modular CSS',
 			'parent' => 'options-general.php',
 			'prefix' => WP_Modular_CSS::PREFIX,
-		] );
-
+		];
+		$this->page = wp_create_admin_page( $this->page_args );
 		$this->add_fields();
-
 		$this->page->setup_page_hooks( [ $this, 'setup_page_hooks' ] );
+
+		// settings link
+		\add_filter(
+			'plugin_action_links_' . \plugin_basename( WP_Modular_CSS::FILE ),
+			[ $this, 'add_settings_link' ]
+		);
+	}
+
+	public function add_settings_link ( $links ) {
+		$label = esc_html__( 'Settings', 'wp-modular-css' );
+		$url = admin_url( 'options-general.php?page=' . $this->page_args['id'] );
+		$links[] = "<a href='$url' $atts>$label</url>";
+		return $links;
+		error_log('???');
 	}
 
 	public function setup_page_hooks( $hook_suffix ) {
@@ -34,7 +48,7 @@ class WP_Modular_CSS_Settings_Page {
 			'label'   => 'CSS Reset',
 			'choices' => [
 				'normalize' => 'Normalize.css v8.0.1',
-				'minireset' => 'minireset v0.0.5',
+				'minireset' => 'minireset v0.0.6',
 				'none' => 'none'
 			],
 			'default' => 'normalize'
