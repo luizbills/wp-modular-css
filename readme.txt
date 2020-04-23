@@ -43,7 +43,7 @@ Yes. In your config, remove the module's declaration in "__enabled-modules" prop
 
 == Changelog ==
 
-* complete CHANGELOG in [https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG](https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG)
+* complete CHANGELOG in [https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG.md](https://github.com/luizbills/wp-modular-css/blob/master/CHANGELOG.md)
 
 == Upgrade Notice ==
 
