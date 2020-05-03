@@ -34,7 +34,6 @@ figure {      outline: 1px solid  #FF00BB!important; }
 figcaption {  outline: 1px solid  #BF0032!important; }
 
 
-
 table {       outline: 1px solid  #00CC99!important; }
 caption {     outline: 1px solid  #37FFC4!important; }
 thead {       outline: 1px solid  #98DACA!important; }
@@ -64,17 +63,14 @@ select {      outline: 1px solid  #E26E0F!important; }
 textarea {    outline: 1px solid  #CC5400!important; }
 
 
-
 details {     outline: 1px solid  #33848F!important; }
 summary {     outline: 1px solid  #60A1A6!important; }
 command {     outline: 1px solid  #438DA1!important; }
 menu {        outline: 1px solid  #449DA6!important; }
 
 
-
 del {         outline: 1px solid  #BF0000!important; }
 ins {         outline: 1px solid  #400000!important; }
-
 
 
 img     {     outline: 1px solid #22746B!important; }
@@ -89,7 +85,6 @@ canvas  {     outline: 1px solid #A2F570!important; }
 track   {     outline: 1px solid #59A600!important; }
 map     {     outline: 1px solid #7BE500!important; }
 area    {     outline: 1px solid #305900!important; }
-
 
 
 a {           outline: 1px solid #FF62AB!important; }
