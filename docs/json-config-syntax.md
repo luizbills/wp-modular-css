@@ -2,49 +2,43 @@
 
 ## Options
 
-### prefix
+### `prefix`
 
 default value: `null`
 
 Adds a prefix in all tachyons classes.
 
-### debug
+### `debug`
 
 default value: `false`
 
 Adds the [**debug** module](https://github.com/luizbills/wp-modular-css/blob/master/css-modules/tachyons-default/debug.css).
 
-### debug-children
+### `debug-children`
 
 default value: `false`
 
 Adds the [**debug-children** module](https://github.com/luizbills/wp-modular-css/blob/master/css-modules/tachyons-default/debug-children.css).
 
-### debug-grid
+### `debug-grid`
 
 default value: `false`
 
 Adds the [**debug-grid** module](https://github.com/luizbills/wp-modular-css/blob/master/css-modules/tachyons-default/debug-grid.css).
 
-### include-normalize
-
-default value: `true`
-
-Adds the [**Normalize.css** library](https://github.com/luizbills/wp-modular-css/blob/master/css-includes/normalize.min.css).
-
-### media-queries
+### `media-queries`
 
 Defines your **breakpoints** to responsive classes. If no breakpoints are set, then no module will be responsive.
 
-### colors
+### `colors`
 
 The colors used in several modules, like "text colors", "background colors", "border colors", ...
 
-### __enabled-modules
+### `__enabled-modules`
 
 defines which tachyons modules will be used, which ones will be responsive, and their order in the generated css file.
 
-#### Make a module responsive or non-responsive
+#### How to make a module responsive or non-responsive
 
 Put `"responsive"` inside of the module's array definition.
 
@@ -59,11 +53,11 @@ E.g.: make "border-colors" module responsive (which by default is not responsive
 }
 ```
 
-### Other options
+### Other details
 
 The other options are used to customize all modules.
 
-#### @default
+#### `@default`
 
 Some options has `"@default"` as name, this means an *empty* name.
 
@@ -85,10 +79,9 @@ the above config generates:
 .tracked-mega { letter-spacing: .25em; }
 ```
 
-#### [[@use ...]]
+#### `[[@use ...]]`
 
 Some options has `"[[@use ...]]"` as value, this is used to get value from other options.
-
 ```json
 {
 	"colors": {
@@ -100,7 +93,7 @@ Some options has `"[[@use ...]]"` as value, this is used to get value from other
 }
 ```
 
-the above config generates:
+The above config generates:
 ```css
 .nested-links a {
 	color: #123456;
