@@ -241,15 +241,16 @@ class WP_Modular_CSS_Builder {
 
 	public function includes_before ( $output, $prefix ) {
 		$css_reset = WP_Modular_CSS::get_setting( 'css_reset' );
-		$version = WP_Modular_CSS::VERSION;
+		$plugin_version = WP_Modular_CSS::VERSION;
+		$tachyons_version = WP_Modular_CSS::TACHYONS_VERSION;
 
 		// includes plugin header
-		$output .= "/*! built with WP Modular CSS v$version | https://github.com/luizbills/wp-modular-css */" . PHP_EOL;
+		$output .= "/*! built with WP Modular CSS v{$plugin_version} | https://github.com/luizbills/wp-modular-css */" . PHP_EOL;
 
 		// includes tachyons header
-		$output .= file_get_contents( WP_Modular_CSS::DIR . '/css-includes/tachyons-header.css' );
+		$output .= "/*! based on TACHYONS v{$tachyons_version} | http://tachyons.io */" . PHP_EOL . PHP_EOL;
 
-		// includes normalize
+		// includes the CSS Reset
 		if ( 'none' !== $css_reset ) {
 			$output .= file_get_contents( WP_Modular_CSS::DIR . "/css-includes/$css_reset.css" );
 		}
