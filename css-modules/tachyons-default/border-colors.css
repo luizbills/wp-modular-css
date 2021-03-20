@@ -6,6 +6,10 @@
 .[[@use prefix]]b--[[@index]] { border-color: [[@value]]; }
 [[/@foreach]]
 
+[[@foreach border-colors:extras]]
+.[[@use prefix]]b--[[@index]] { height: [[@value]]; }
+[[/@foreach]]
+
 [[@responsive]]
 	[[@foreach colors]]
 	.[[@use prefix]]b--[[@index]]-[[@screen-size]] { border-color: [[@value]]; }
